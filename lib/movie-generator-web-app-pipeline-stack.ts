@@ -15,7 +15,6 @@ export class MovieGeneratorWebAppPipelineStack extends cdk.Stack {
                 input: CodePipelineSource.gitHub('thaolydo/movie-generator-web-app', 'main'),
                 commands: [
                     'npm ci',
-                    'npm run build',
                     'ls',
                     'ls web-app',
                     'cd web-app',
@@ -24,6 +23,7 @@ export class MovieGeneratorWebAppPipelineStack extends cdk.Stack {
                     'npm run build-beta',
                     'npm run build-prod',
                     'cd -',
+                    'npm run build',
                     'npx cdk synth',
                 ]
             }),
