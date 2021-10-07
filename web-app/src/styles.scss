@@ -4,3 +4,13 @@ body {
     margin: 0px !important;
     padding: 0 !important;
 }
+.container {
+    max-width: 1500px;
+    margin: 50px auto;
+    overflow: auto;
+    min-height: 900px;
+    border: 1px solid steelblue;
+    padding: 50px;
+    border-radius: 5px;
+}
+
