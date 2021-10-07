@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+    max-width: 1500px;
+    margin: 50px auto;
+    overflow: auto;
+    min-height: 900px;
+    border: 1px solid steelblue;
+    padding: 50px;
+    border-radius: 5px;
+}
+
