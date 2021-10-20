@@ -9,6 +9,9 @@ import { HeaderComponent } from './componenets/header/header.component';
 import { LoginPageComponent } from './Pages/login-page/login-page.component';
 import { SignupPageComponent } from './Pages/signup-page/signup-page.component';
 
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { SignupPageComponent } from './Pages/signup-page/signup-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot(
+      reducers
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
