@@ -8,6 +8,7 @@ import { LandingPageComponent } from './Pages/landing-page/landing-page.componen
 import { HeaderComponent } from './componenets/header/header.component';
 import { LoginPageComponent } from './Pages/login-page/login-page.component';
 import { SignupPageComponent } from './Pages/signup-page/signup-page.component';
+import { SettingsPageComponent } from './Pages/settings-page/settings-page.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { SignupPageComponent } from './Pages/signup-page/signup-page.component';
     HeaderComponent,
     LoginPageComponent,
     SignupPageComponent,
+    SettingsPageComponent,
   ],
   imports: [
     BrowserModule,
