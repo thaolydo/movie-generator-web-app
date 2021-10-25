@@ -8,6 +8,7 @@ import { LandingPageComponent } from './Pages/landing-page/landing-page.componen
 import { LoginPageComponent } from './Pages/login-page/login-page.component';
 import { SignupPageComponent } from './Pages/signup-page/signup-page.component';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
+import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actress-page.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { MainPageComponent } from './Pages/main-page/main-page.component';
     LoginPageComponent,
     SignupPageComponent,
     MainPageComponent,
+    ActorActressPageComponent,
   ],
   imports: [
     BrowserModule,
