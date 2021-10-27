@@ -1,6 +1,25 @@
-<div class="container">
-    <div id="searchBar">
-        <input [(ngModel)]="searchBarText" type="text" name="searchBarText" id="searchBarText" placeholder="Search Movie Generator">
-        {{searchBarText}}
+<div id="actorPageBackground">
+    <div id="landingPageNavBar">
+      <span id="landingPageLogo"
+        ><p>Movie</p>
+        Generator</span
+      >
     </div>
-</div>
+    <div id="actorPageModal">
+      <div id="actorPageInnerDiv">
+        <input [(ngModel)]="searchBarText" type="text" name="searchBarText" id="searchBarText" placeholder="Search Movie Generator">
+        <div id="category">
+            <h1>Featured Today</h1>
+        </div>
+        <div id="category">
+            <h1>Explore From Your Watchlist</h1>
+        </div>
+        <div id="category">
+            <h1>Fan Favorites</h1>
+        </div>
+        <div id="category">
+            <h1>Top Box Office (US)</h1>
+        </div>
+      </div>
+    </div>
+  </div>
