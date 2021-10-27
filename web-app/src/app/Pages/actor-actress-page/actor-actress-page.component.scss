@@ -1,0 +1,102 @@
+$mainFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$buttonBackground: rgb(147, 112, 219);
+$buttonBorderColor: rgb(138, 43, 226);
+
+#actorPageBackground {
+  overflow: hidden;
+  height: 3000px;
+  width: 100%;
+  background: #ebf606;
+  background: -webkit-linear-gradient(top right, #ebf606, #fa1894);
+  background: -moz-linear-gradient(top right, #ebf606, #fa1894);
+  background: linear-gradient(to bottom left, #ebf606, #fa1894);
+  display: flex;
+  flex-direction: column;
+}
+
+#actorPageModal {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  width: 60vw;
+  height: 1050px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 5% 5% 5% 5%;
+  font-family: "Avant Garde", Avantgarde, sans-serif;
+}
+
+#actorPhoto {
+    width: 35%;
+    height: 35%;
+    margin-right: 60px;
+}
+
+#actorInformation {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 70px;
+}
+
+#actorTextInformation {
+    flex-direction: column;
+}
+
+#actorPhotos {
+    margin-bottom: 70px;
+}
+
+.photosRow {
+    display: flex;
+    align-items: center;
+}
+  
+.column {
+    flex: 33.33%;
+    padding: 5px;
+}
+
+#movieNameTable {
+    border-spacing: 1em 1.5em;
+}
+
+#movieName {
+    font-size: 20px;
+}
+
+#landingPageNavBar {
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 5% 2% 5%;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+#landingPageMainContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: $mainFont;
+  text-align: center;
+}
+
+#landingPageLogo {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic,
+    "AppleGothic", sans-serif;
+  font-size: 22px;
+  padding: 10px 50px;
+  text-align: left;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+
+  color: #131313;
+
+  letter-spacing: 0.25em;
+  text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474,
+    -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px #7f7d7d,
+    -6px 12px 1px #828181, -7px 14px 1px #868585, -8px 16px 1px #8b8a89;
+}
+
