@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './Pages/landing-page/landing-page.component';
 import { LoginPageComponent } from './Pages/login-page/login-page.component';
 import { SignupPageComponent } from './Pages/signup-page/signup-page.component';
+import { ResetpasswordPageComponent } from './Pages/resetpassword-page/resetpassword-page.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
@@ -18,6 +20,7 @@ import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actr
     LandingPageComponent,
     LoginPageComponent,
     SignupPageComponent,
+    ResetpasswordPageComponent,
     MainPageComponent,
     ActorActressPageComponent,
   ],
