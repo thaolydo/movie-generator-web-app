@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actress-page.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actr
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    StoreModule.forRoot(
+      reducers
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
