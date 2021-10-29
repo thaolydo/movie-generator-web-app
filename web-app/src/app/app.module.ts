@@ -15,6 +15,7 @@ import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actress-page.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers';
+import { SettingsPageComponent } from './Pages/settings-page/settings-page.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { reducers } from './store/reducers';
     ResetpasswordPageComponent,
     MainPageComponent,
     ActorActressPageComponent,
+    SettingsPageComponent,
   ],
   imports: [
     BrowserModule,
