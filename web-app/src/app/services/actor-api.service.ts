@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { ActorIDResults } from '../JSON Classes/ActorID';
 import { ActorBioResult } from '../JSON Classes/ActorBio';
-
+import { ActorInfo } from '../JSON Classes/ActorInfo';
+import { ActorMovieInfo } from '../JSON Classes/ActorMovieInfo';
 @Injectable({
   providedIn: 'root'
 })
@@ -30,6 +31,16 @@ export class ActorAPIService {
   getActorBio(actorID: string): Observable<ActorBioResult> {
     var apiURL = `${this.actorAPIURL}/id/${actorID}/bio/`;
     return this.httpClient.get<ActorBioResult>(apiURL,this.httpOptions)
+  }
+
+  getActorPhoto(actorID: string): Observable<ActorInfo> {
+    var apiURL = `${this.actorAPIURL}/id/${actorID}/`;
+    return this.httpClient.get<ActorInfo>(apiURL,this.httpOptions)
+  }
+
+  getActorMovies(actorID: string): Observable<ActorMovieInfo> {
+    var apiURL = `${this.actorAPIURL}/id/${actorID}/movies_knownFor/`;
+    return this.httpClient.get<ActorMovieInfo>(apiURL,this.httpOptions)
   }
 
   addPercentTwenty(name: string) : string {

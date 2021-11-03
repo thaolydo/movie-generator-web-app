@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActorAPIService } from 'src/app/services/actor-api.service';
-import { ActorIDResults } from 'src/app/JSON Classes/ActorID';
 import { ActorID } from 'src/app/JSON Classes/ActorID';
+import { ActorMovie } from 'src/app/JSON Classes/ActorMovieInfo';
+import { Movie } from 'src/app/JSON Classes/ActorMovieInfo';
 
 @Component({
   selector: 'app-actor-actress-page',
@@ -11,19 +12,26 @@ import { ActorID } from 'src/app/JSON Classes/ActorID';
 export class ActorActressPageComponent implements OnInit {
 
   apiResults: ActorID[] = []
-  actorName = "Tom Hanks"
+  actorName = "Leonardo DiCaprio"
   actorID = ""
   actorBio = ""
+  actorPhotoURL = ""
+  actorMovie: ActorMovie[] = []
 
   constructor(private actorAPIService: ActorAPIService) { }
 
   ngOnInit(): void {
     var id = this.getActorID();
-    id.then((result) => {
-      console.log(result)
-      this.actorAPIService.getActorBio(result).subscribe(bio => this.actorBio = bio.results.biography.bio);
-  });
-    //console.log(id);
+    id.then((actorID) => {
+      console.log(actorID)
+      this.actorAPIService.getActorBio(actorID).subscribe(bio => this.actorBio = bio.results.biography.bio);
+      this.actorAPIService.getActorPhoto(actorID).subscribe(photo => this.actorPhotoURL = photo.results.image_url)
+      this.actorAPIService.getActorMovies(actorID).subscribe(movies => {
+        this.actorMovie = movies.results
+        console.log(this.actorMovie[0])
+      });
+
+    });
   }
 
   async getActorID(): Promise<string> {
