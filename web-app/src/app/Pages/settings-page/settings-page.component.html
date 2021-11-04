@@ -1,17 +1,18 @@
 <div id="settingsPageBackground">
-    <div id="settingsPageNavBar">
-      <span id="settingsPageLogo"
-        ><p>Movie</p>
-        Generator</span
-      >
-    </div>
+  <div id="settingsPageNavBar">
+    <span id="settingsPageLogo"
+      ><p>Movie</p>
+      Generator</span
+    >
+  </div>
+  
     <div id="settingsPageModal">  
       <div id="settingsPageInnerDiv">
         <h1 id="settingsPageHeader">Settings</h1>
         <div id="settingsPageInputDiv">
-            <input (click)="alertMe()" readonly class="settingsPageLink" placeholder="Account Details"/>
-            <input (click)="alertMe()" readonly class="settingsPageLink" placeholder="Recommendation Preferences"/>
-            <input (click)="alertMe()" readonly class="settingsPageLink" placeholder="Appearance"/>
+            <input (click)="showAccountDetailsModal()" readonly class="settingsPageLink" placeholder="Account Details"/>
+            <input (click)="showRecommendationModal()" readonly class="settingsPageLink" placeholder="Recommendation Preferences"/>
+            <input (click)="showAppearanceModal()" readonly class="settingsPageLink" placeholder="Appearance"/>
             <input (click)="alertMe()" readonly class="settingsPageLink" placeholder="History"/>
             <input (click)="alertMe()" readonly class="settingsPageLink" placeholder="Security"/>
             <input (click)="alertMe()" readonly class="settingsPageLink" placeholder="Help"/>
@@ -21,5 +22,161 @@
         </div>
       </div>
     </div>
-  </div>
+     
+  <div style="display: none;" id="clickModal">
+    
+      <div style="display: none;" id="accountDetailsPopup">
+        <div><p>First Name:</p><input></div>
+        <div><p>Last Name:</p><input></div>
+        <div><p>Email Address:</p><input></div>
+        <div><p>Phone Number:</p><input></div>
+      </div>
+       
+       
+    <div style="display: none;" id="recommendatioPreferencesPopup">
+      <div id="recommendationInnerDiv">
+        <h1 id="accountPreferencesHeader">Preferences</h1>
+        <div id="accountPreferencesOuterColumnContainer">
+          <div>
+            <div>
+              <input type="checkbox" id="horror" name="horror" />
+              <label class="accountPreferencesInput" for="horror"
+                >Horror</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="comedy" name="comedy" />
+              <label class="accountPreferencesInput" for="comedy"
+                >Comedy</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="action" name="action" />
+              <label class="accountPreferencesInput" for="action"
+                >Action</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="drama" name="drama" />
+              <label class="accountPreferencesInput" for="drama"
+                >Drama</label
+              >
+            </div>
+          </div>
+          <div>
+            <div>
+              <input
+                type="checkbox"
+                id="scienceFiction"
+                name="scienceFiction"
+              />
+              <label class="accountPreferencesInput" for="scienceFiction"
+                >Science Fiction</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="romance" name="romance" />
+              <label class="accountPreferencesInput" for="romance"
+                >Romance</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="documentary" name="documentary" />
+              <label class="accountPreferencesInput" for="documentary"
+                >Documentary</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="mystery" name="mystery" />
+              <label class="accountPreferencesInput" for="mystery"
+                >Mystery</label
+              >
+            </div>
+          </div>
+          <div>
+            <div>
+              <input type="checkbox" id="sports" name="sports" />
+              <label class="accountPreferencesInput" for="sports"
+                >Sport</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="drama" name="drama" />
+              <label class="accountPreferencesInput" for="drama"
+                >Drama</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="biography" name="biography" />
+              <label class="accountPreferencesInput" for="biography"
+                >Biography</label
+              >
+            </div>
+            <div>
+              <input type="checkbox" id="shortFilms" name="shortFilms" />
+              <label class="accountPreferencesInput" for="shortFilms"
+                >Short Film</label
+              >
+            </div>
+          </div>
+        </div>
+        <button id="accountPreferencesButton">Submit</button>
+      </div>
+    </div>
   
+    <div style="display: none;" id="appearancePopup">
+      <div>
+        <div>
+          
+          <label class="accountPreferencesInput" for="username"
+            >Display User Name</label
+          >
+          <input type="checkbox" id="username" name="username" />
+        </div>
+        <div>
+          
+          <label class="accountPreferencesInput" for="mystery"
+            >Display User Photo</label
+          >
+          <input type="checkbox" id="mystery" name="mystery" />
+        </div>
+        <div>
+          <label class="accountPreferencesInput" for="usernameTextColor"
+            >Username Text Color:</label
+          >
+
+          <select name="usernameTextColor" id="usernameTextColor">
+            <option value="">Select:</option>
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="indigo">Indigo</option>
+          </select>
+        </div>
+        <div>
+          <label class="accountPreferencesInput" for="usernameTextColor"
+            >User Photo Border Color:</label
+          >
+
+          <select name="usernameTextColor" id="usernameTextColor">
+            <option value="">Select:</option>
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="indigo">Indigo</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div id="historyPopup"></div>
+    <div id="securityPopup"></div>
+    <div id="helpPopup"></div>
+    <div id="termsAndConditionsPopup"></div>
+    <div id="feedbackPopup"></div>
+    <div id="signoutPopup"></div>
+  </div>
+</div>
