@@ -160,6 +160,7 @@ $buttonBorderColor: rgb(138, 43, 226);
 
 #accountDetailsPopup {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
