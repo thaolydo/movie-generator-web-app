@@ -29,7 +29,6 @@ $buttonBorderColor: rgb(138, 43, 226);
 #settingsPageInputDiv {
   display: flex;
   flex-direction: column;
- 
 }
 
 #settingsPageHeader {
@@ -102,21 +101,28 @@ $buttonBorderColor: rgb(138, 43, 226);
 }
 
 .settingsPageLink {
-    color: white;
-    background-color: #333;
-    border-radius: 5px;
-    border: none;
-    width: 25vw;
-    height: 2vh;
-    padding: 8px 20px 8px 20px;
-    margin-bottom: 1vh;
+  color: white;
+  background-color: #333;
+  border-radius: 5px;
+  border: none;
+  width: 25vw;
+  height: 2vh;
+  padding: 8px 20px 8px 20px;
+  margin-bottom: 1vh;
+}
+
+.settingsHeader {
+  color: white;
+  text-align: left;
+  align-self: flex-start;
+  margin-left: 1vw;
 }
 
 #clickModal {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 5px;
   width: 40vw;
-  
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,16 +131,31 @@ $buttonBorderColor: rgb(138, 43, 226);
   padding-bottom: 3vh;
 }
 
+#accountDetailsInnerDiv {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  justify-content: center;
+  align-items: center;
+}
+
 #recommendationInnerDiv {
   display: flex;
   flex-direction: column;
   width: 30vw;
 }
 
+#appearanceInnerDiv {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  align-items: center;
+}
+
 #accountPreferencesOuterColumnContainer {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5%;
+  
 }
 
 #accountPreferencesHeader {
@@ -147,8 +168,13 @@ $buttonBorderColor: rgb(138, 43, 226);
   color: white;
 }
 
+.accountPreferencesRows {
+  display: flex;
+  justify-content: space-between;
+}
+
 #accountPreferencesButton {
-  color:white;
+  color: white;
   width: 100%;
   height: 6vh;
   border-radius: 5px;
@@ -156,6 +182,7 @@ $buttonBorderColor: rgb(138, 43, 226);
   background-color: #a4508b;
   background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
   padding: 8px 0px 8px 0px;
+  margin-top: 2vh;
 }
 
 #accountDetailsPopup {

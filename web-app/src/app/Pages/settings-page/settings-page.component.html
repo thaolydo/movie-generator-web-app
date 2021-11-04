@@ -26,10 +26,15 @@
   <div style="display: none;" id="clickModal">
     
       <div style="display: none;" id="accountDetailsPopup">
-        <div><p>First Name:</p><input></div>
-        <div><p>Last Name:</p><input></div>
-        <div><p>Email Address:</p><input></div>
-        <div><p>Phone Number:</p><input></div>
+        
+        <div id="accountDetailsInnerDiv">
+          <h1 class="settingsHeader">Edit Account</h1>
+        <div><input placeholder="First Name" class="settingsPageInput"></div>
+        <div><input placeholder="Last Name" class="settingsPageInput"></div>
+        <div><input placeholder="Email Address" class="settingsPageInput"></div>
+        <div><input placeholder="Phone Number" class="settingsPageInput"></div>
+        <button id="accountPreferencesButton">Submit</button>
+      </div>
       </div>
        
        
@@ -125,39 +130,20 @@
     </div>
   
     <div style="display: none;" id="appearancePopup">
-      <div>
+      <div id="appearanceInnerDiv">
+        <h1 class="settingsHeader">Edit Account</h1>
+        <div>
+          <div class="accountPreferencesRows">
         <div>
           
           <label class="accountPreferencesInput" for="username"
-            >Display User Name</label
+            >Display Username</label
           >
           <input type="checkbox" id="username" name="username" />
         </div>
         <div>
-          
-          <label class="accountPreferencesInput" for="mystery"
-            >Display User Photo</label
-          >
-          <input type="checkbox" id="mystery" name="mystery" />
-        </div>
-        <div>
           <label class="accountPreferencesInput" for="usernameTextColor"
-            >Username Text Color:</label
-          >
-
-          <select name="usernameTextColor" id="usernameTextColor">
-            <option value="">Select:</option>
-            <option value="red">Red</option>
-            <option value="orange">Orange</option>
-            <option value="yellow">Yellow</option>
-            <option value="green">Green</option>
-            <option value="blue">Blue</option>
-            <option value="indigo">Indigo</option>
-          </select>
-        </div>
-        <div>
-          <label class="accountPreferencesInput" for="usernameTextColor"
-            >User Photo Border Color:</label
+            >Username Text Color </label
           >
 
           <select name="usernameTextColor" id="usernameTextColor">
@@ -171,6 +157,36 @@
           </select>
         </div>
       </div>
+      <div class="accountPreferencesRows">
+        <div>
+          
+          <label class="accountPreferencesInput" for="mystery"
+            >Display User Photo</label
+          >
+          <input type="checkbox" id="mystery" name="mystery" />
+        </div>
+        
+        <div>
+          <label class="accountPreferencesInput" for="usernameTextColor"
+            >Photo Border Color </label
+          >
+
+          <select name="usernameTextColor" id="usernameTextColor">
+            <option value="">Select:</option>
+            <option value="red">Red</option>
+            <option value="orange">Orange</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="indigo">Indigo</option>
+          </select>
+        </div>
+      </div>
+      
+      </div>
+      <button id="accountPreferencesButton">Submit</button>
+    </div>
+
     </div>
     <div id="historyPopup"></div>
     <div id="securityPopup"></div>
