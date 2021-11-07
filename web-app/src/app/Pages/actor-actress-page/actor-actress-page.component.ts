@@ -12,7 +12,7 @@ import { MovieInfo } from 'src/app/JSON Classes/ActorMovie';
 export class ActorActressPageComponent implements OnInit {
 
   apiResults: ActorID[] = []
-  actorName = "Tom Hanks"
+  actorName = "Drew Barrymore"
   actorID = ""
   actorBio = ""
   actorPhotoURL = ""
@@ -24,6 +24,7 @@ export class ActorActressPageComponent implements OnInit {
   actorMovie: ActorMovie = {
     results: [[this.movieInfo]]
   }
+  actorMovies: string[] = []
 
   constructor(private actorAPIService: ActorAPIService) { }
 
@@ -36,7 +37,7 @@ export class ActorActressPageComponent implements OnInit {
       this.actorAPIService.getActorMovies(actorID).subscribe(movies => {
         this.actorMovie = movies
         for (var movie in this.actorMovie.results) {
-          console.log(((this.actorMovie.results[movie])[0]).title)
+          this.actorMovies.push(((this.actorMovie.results[movie])[0]).title);
         }
       });
     });

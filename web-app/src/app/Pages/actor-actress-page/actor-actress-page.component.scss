@@ -36,7 +36,7 @@ $buttonBorderColor: rgb(138, 43, 226);
     width: 100%;
     display: flex;
     justify-content: space-evenly;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 
 #actorTextInformation {
@@ -63,6 +63,7 @@ $buttonBorderColor: rgb(138, 43, 226);
 
 #movieName {
     font-size: 20px;
+    margin-bottom: 10px;
 }
 
 #landingPageNavBar {
