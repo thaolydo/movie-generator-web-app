@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router"
 
 @Component({
   selector: 'app-settings-page',
@@ -13,9 +14,11 @@ export class SettingsPageComponent implements OnInit {
   appearanceModalVisible: string = 'none';
   historyModalVisible: string = 'none';
   securityModalVisible: string = 'none';
-  showHelpModalVisible: string = 'none';
+  helpModalVisible: string = 'none';
+  tAndCModalVisible: string = 'none';
+  feedbackModalVisible: string = 'none';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
@@ -256,16 +259,100 @@ export class SettingsPageComponent implements OnInit {
       if (clickModal) (clickModal as HTMLFormElement).style.display = 'none';
     }
 
-    if (this.showHelpModalVisible == 'none') {
+    if (this.helpModalVisible == 'none') {
       // shows the appearance modal
-      this.showHelpModalVisible = 'flex';
+      this.helpModalVisible = 'flex';
       if (showHelpPopUp)
         (showHelpPopUp as HTMLFormElement).style.display = 'flex';
-    } else if (this.showHelpModalVisible == 'flex') {
+    } else if (this.helpModalVisible == 'flex') {
       // hides the appearance modal
-      this.showHelpModalVisible = 'none';
+      this.helpModalVisible = 'none';
       if (showHelpPopUp)
         (showHelpPopUp as HTMLFormElement).style.display = 'none';
     }
+  }
+
+  showTAndCModal = () => {
+    let showTAndCPopUp = document.getElementById('termsAndConditionsPopup');
+    let mainSettingsModal = document.getElementById('settingsPageModal');
+    let clickModal = document.getElementById('clickModal');
+
+    if (this.settingsModalVisible == 'none') {
+      // shows the settings modal
+      this.settingsModalVisible = 'block';
+      if (mainSettingsModal)
+        (mainSettingsModal as HTMLFormElement).style.display = 'block';
+    } else if (this.settingsModalVisible == 'block') {
+      // hides the settings modal
+      this.settingsModalVisible = 'none';
+      if (mainSettingsModal)
+        (mainSettingsModal as HTMLFormElement).style.display = 'none';
+    }
+
+    if (this.clickModalVisible == 'none') {
+      // shows the click modal
+      this.clickModalVisible = 'block';
+      if (clickModal) (clickModal as HTMLFormElement).style.display = 'block';
+    } else if (this.clickModalVisible == 'block') {
+      // hides the click modal
+      this.clickModalVisible = 'none';
+      if (clickModal) (clickModal as HTMLFormElement).style.display = 'none';
+    }
+
+    if (this.tAndCModalVisible == 'none') {
+      // shows the appearance modal
+      this.tAndCModalVisible = 'flex';
+      if (showTAndCPopUp)
+        (showTAndCPopUp as HTMLFormElement).style.display = 'flex';
+    } else if (this.tAndCModalVisible == 'flex') {
+      // hides the appearance modal
+      this.tAndCModalVisible = 'none';
+      if (showTAndCPopUp)
+        (showTAndCPopUp as HTMLFormElement).style.display = 'none';
+    }
+  }
+
+  showFeedbackModal = () => {
+    let showFeedbackModal = document.getElementById('feedbackPopup');
+    let mainSettingsModal = document.getElementById('settingsPageModal');
+    let clickModal = document.getElementById('clickModal');
+
+    if (this.settingsModalVisible == 'none') {
+      // shows the settings modal
+      this.settingsModalVisible = 'block';
+      if (mainSettingsModal)
+        (mainSettingsModal as HTMLFormElement).style.display = 'block';
+    } else if (this.settingsModalVisible == 'block') {
+      // hides the settings modal
+      this.settingsModalVisible = 'none';
+      if (mainSettingsModal)
+        (mainSettingsModal as HTMLFormElement).style.display = 'none';
+    }
+
+    if (this.clickModalVisible == 'none') {
+      // shows the click modal
+      this.clickModalVisible = 'block';
+      if (clickModal) (clickModal as HTMLFormElement).style.display = 'block';
+    } else if (this.clickModalVisible == 'block') {
+      // hides the click modal
+      this.clickModalVisible = 'none';
+      if (clickModal) (clickModal as HTMLFormElement).style.display = 'none';
+    }
+
+    if (this.feedbackModalVisible == 'none') {
+      // shows the appearance modal
+      this.feedbackModalVisible = 'flex';
+      if (showFeedbackModal)
+        (showFeedbackModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.feedbackModalVisible == 'flex') {
+      // hides the appearance modal
+      this.feedbackModalVisible = 'none';
+      if (showFeedbackModal)
+        (showFeedbackModal as HTMLFormElement).style.display = 'none';
+    }
+  }
+
+  signOutFromSettings = () => {
+    this.router.navigate(['/landing-page'])
   }
 }
