@@ -2,7 +2,7 @@ $mainFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $buttonBackground: rgb(147, 112, 219);
 $buttonBorderColor: rgb(138, 43, 226);
 
-#resetPasswordPageBackground {
+#shareMoviePageBackground {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
@@ -14,23 +14,11 @@ $buttonBorderColor: rgb(138, 43, 226);
   flex-direction: column;
 }
 
-mat-stepper {
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
-  background: #ebf606;
-  background: -webkit-linear-gradient(top right, #ebf606, #fa1894);
-  background: -moz-linear-gradient(top right, #ebf606, #fa1894);
-  background: linear-gradient(to bottom left, #ebf606, #fa1894);
-  display: flex;
-  flex-direction: column;
-}
-
-#resetPasswordPageModal {
+#shareMoviePageModal {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 5px;
-  width: 100%;
-  height: 60vh;
+  width: 40vw;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,25 +26,18 @@ mat-stepper {
   padding-top: 3vh;
 }
 
-#resetPasswordPageInputDiv {
+#shareMoviePageInputDiv {
   display: flex;
   flex-direction: column;
 }
 
-#resetPasswordPageHeader {
+#shareMoviePageHeader {
   color: white;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   align-self: flex-start;
 }
 
-#resetPasswordPageLabel {
-    color: white;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    align-self: flex-start;
-    margin-bottom: 5px;
-  }
-
-.resetPasswordPageInput {
+.shareMovieInput {
   color: white;
   background-color: #333;
   border-radius: 5px;
@@ -65,9 +46,16 @@ mat-stepper {
   height: 4vh;
   padding: 8px 20px 8px 20px;
   margin-bottom: 1vh;
+  text-align: center;
 }
 
-#resetPasswordPageButton {
+#shareMoviePageParagraph {
+  color:white;
+  font-family: $mainFont;
+  text-align: center;
+}
+
+.shareMovieButton {
   color:white;
   width: 100%;
   height: 6vh;
@@ -76,15 +64,23 @@ mat-stepper {
   background-color: #a4508b;
   background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
   padding: 8px 0px 8px 0px;
+  margin-bottom: 2%;
 }
 
-#resetPasswordPageText {
+#shareMovieBackButton {
+  background: #27695A;
+background: -webkit-linear-gradient(top left, #27695A, #1C278C);
+background: -moz-linear-gradient(top left, #27695A, #1C278C);
+background: linear-gradient(to bottom right, #27695A, #1C278C);
+}
+
+#shareMoviePageText {
   color: #555;
   font-family: $mainFont;
   font-size: 12px;
 }
 
-#resetPasswordPageNavBar {
+#landingPageNavBar {
   display: flex;
   justify-content: space-between;
   padding: 2% 5% 2% 5%;
@@ -92,7 +88,7 @@ mat-stepper {
   align-items: center;
 }
 
-#resetPasswordPageMainContent {
+#landingPageMainContent {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -102,7 +98,7 @@ mat-stepper {
   text-align: center;
 }
 
-#resetPasswordPageLogo {
+#landingPageLogo {
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic,
     "AppleGothic", sans-serif;
   font-size: 22px;
@@ -118,3 +114,4 @@ mat-stepper {
     -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px #7f7d7d,
     -6px 12px 1px #828181, -7px 14px 1px #868585, -8px 16px 1px #8b8a89;
 }
+

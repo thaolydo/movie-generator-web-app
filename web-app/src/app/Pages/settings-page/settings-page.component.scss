@@ -29,7 +29,6 @@ $buttonBorderColor: rgb(138, 43, 226);
 #settingsPageInputDiv {
   display: flex;
   flex-direction: column;
- 
 }
 
 #settingsPageHeader {
@@ -102,12 +101,144 @@ $buttonBorderColor: rgb(138, 43, 226);
 }
 
 .settingsPageLink {
-    color: white;
-    background-color: #333;
+  color: white;
+  background-color: #333;
+  border-radius: 5px;
+  border: none;
+  width: 25vw;
+  height: 2vh;
+  padding: 8px 20px 8px 20px;
+  margin-bottom: 1vh;
+}
+
+.settingsHeader {
+  color: white;
+  text-align: left;
+  align-self: flex-start;
+  margin-left: 1vw;
+}
+
+#clickModal {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  width: 40vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+}
+
+#accountDetailsInnerDiv {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  justify-content: center;
+  align-items: center;
+}
+
+#recommendationInnerDiv {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+}
+
+#appearanceInnerDiv, #helpInnerDiv, #securityInnerDiv, #historyInnerDiv, #tAndCInnerDiv, #feedbackInnerDiv {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  align-items: center;
+}
+
+#accountPreferencesOuterColumnContainer {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+#accountPreferencesHeader {
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  align-self: flex-start;
+}
+
+.accountPreferencesInput {
+  color: white;
+}
+
+.accountPreferencesRows {
+  display: flex;
+  justify-content: space-between;
+}
+
+#accountPreferencesButton {
+  color: white;
+  width: 100%;
+  height: 6vh;
+  border-radius: 5px;
+  border: none;
+  background-color: #a4508b;
+  background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+  padding: 8px 0px 8px 0px;
+  margin-top: 2vh;
+}
+
+#accountDetailsPopup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#recommendatioPreferencesPopup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#appearancePopup, #helpPopup, #securityPopup, #historyPopup, #termsAndConditionsPopup, #feedbackPopup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#tAndCDiv {
+  height: 25vh;
+ 
+  overflow-y: scroll;
+  color: #888;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  
+  
+
+  &::-webkit-scrollbar {
+		width: 4px;
+		background-color: #e7e6e6;
+		border-radius: 5px;
+    
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #888;
+		border-radius: 5px;
+		height: 55px;
+		width: 4px;
+    
+	}
+}
+
+h4 {
+  color: white;
+}
+
+#feedbackTextArea {
+  padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
     border-radius: 5px;
-    border: none;
-    width: 25vw;
-    height: 2vh;
-    padding: 8px 20px 8px 20px;
-    margin-bottom: 1vh;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
 }
