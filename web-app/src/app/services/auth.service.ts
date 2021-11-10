@@ -70,6 +70,40 @@ export class AuthService {
     });
   }
 
+  sendResetPasswordCode(email: string): Promise<CognitoUser> {
+    console.log(`Sending code for email '${email}'`);
+    const user = new CognitoUser({
+      Pool: this.userPool,
+      Username: email,
+    });
+    return new Promise((resolve, reject) => {
+      user.forgotPassword({
+        onSuccess: (data: any) => {
+          console.log(`Successfull sent code to email '${email}'`);
+          resolve(user);
+        },
+        onFailure: (err) => {
+          console.error(err);
+        },
+      });
+    });
+  }
+
+  resetPasswordWithCode(user: CognitoUser, verificationCode: string, newPassword: string) {
+    console.log(`Reset password with code`);
+    return new Promise((resolve, reject) => {
+      user.confirmPassword(verificationCode, newPassword, {
+        onSuccess: () => {
+          console.log(`Successfully saved new password`);
+          resolve(user);
+        }, 
+        onFailure: (err) => {
+          console.error(err);
+        }
+      });
+    });
+  }
+
   getCurUser(): CognitoUser | null {
     return this.userPool.getCurrentUser();
   }
