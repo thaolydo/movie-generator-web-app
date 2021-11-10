@@ -1,4 +1,4 @@
-import { Movie } from './movie.model';
+import { Movie } from 'src/app/interfaces/movie.interface';
 
 export interface User {
   firstName: string;
