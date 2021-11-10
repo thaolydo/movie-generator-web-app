@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CognitoUser } from 'amazon-cognito-identity-js';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-resetpassword-page',
@@ -7,12 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetpasswordPageComponent implements OnInit {
 
-  enteredPassword: string = ""
-  confirmedPassword: string = ""
+  enteredPassword: string = '';
+  confirmedPassword: string = '';
+  verificationCode: string = '';
+  email: string = '';
+  editable = false;
+  curUser: CognitoUser | undefined;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+  }
+  
+  async onSendCode() {
+    console.log('Sending code');
+    this.curUser = await this.authService.sendResetPasswordCode(this.email);
+  }
+  
+  onResetPassword() {
+    console.log('Reset password');
+    this.authService.resetPasswordWithCode(this.curUser!, this.verificationCode, this.enteredPassword);
   }
 
 }
