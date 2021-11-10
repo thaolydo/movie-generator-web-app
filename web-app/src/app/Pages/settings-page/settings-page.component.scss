@@ -145,7 +145,7 @@ $buttonBorderColor: rgb(138, 43, 226);
   width: 30vw;
 }
 
-#appearanceInnerDiv, #helpInnerDiv, #securityInnerDiv, #historyInnerDiv {
+#appearanceInnerDiv, #helpInnerDiv, #securityInnerDiv, #historyInnerDiv, #tAndCInnerDiv, #feedbackInnerDiv {
   display: flex;
   flex-direction: column;
   width: 30vw;
@@ -198,8 +198,47 @@ $buttonBorderColor: rgb(138, 43, 226);
   justify-content: center;
 }
 
-#appearancePopup, #helpPopup, #securityPopup, #historyPopup {
+#appearancePopup, #helpPopup, #securityPopup, #historyPopup, #termsAndConditionsPopup, #feedbackPopup {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#tAndCDiv {
+  height: 25vh;
+ 
+  overflow-y: scroll;
+  color: #888;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  
+  
+
+  &::-webkit-scrollbar {
+		width: 4px;
+		background-color: #e7e6e6;
+		border-radius: 5px;
+    
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #888;
+		border-radius: 5px;
+		height: 55px;
+		width: 4px;
+    
+	}
+}
+
+h4 {
+  color: white;
+}
+
+#feedbackTextArea {
+  padding: 10px;
+    max-width: 100%;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
 }
