@@ -9,13 +9,14 @@ import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actress-page.component';
 
 const routes: Routes = [
-  {path: "landing-page", component: LandingPageComponent},
-  {path: "login-page", component: LoginPageComponent},
-  {path: "signup-page", component: SignupPageComponent},
-  {path: "resetpassword-page", component: ResetpasswordPageComponent},
-  {path: "main-page", component: MainPageComponent},
-  {path: "actor-actress-page", component: ActorActressPageComponent},
-  {path: "settings-page", component: SettingsPageComponent}
+  { path: '', redirectTo: 'landing-page', pathMatch: 'full' },
+  { path: "landing-page", component: LandingPageComponent },
+  { path: "login-page", component: LoginPageComponent },
+  { path: "signup-page", component: SignupPageComponent },
+  { path: "resetpassword-page", component: ResetpasswordPageComponent },
+  { path: "main-page", component: MainPageComponent },
+  { path: "actor-actress-page", component: ActorActressPageComponent },
+  { path: "settings-page", component: SettingsPageComponent }
 
 ];
 
