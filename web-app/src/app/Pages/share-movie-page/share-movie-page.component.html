@@ -1,0 +1,20 @@
+<div id="shareMoviePageBackground">
+  <div id="landingPageNavBar">
+    <span id="landingPageLogo"
+      ><p>Movie</p>
+      Generator</span
+    >
+  </div>
+  <div id="shareMoviePageModal">
+    <div id="shareMoviePageInnerDiv">
+      <h1 id="shareMoviePageHeader">Share Movie</h1>
+      <div id="shareMoviePageInputDiv">
+        <p id="shareMoviePageParagraph">Who would you like to share this with?</p>
+        <input [(ngModel)]="receiverName" class="shareMovieInput" placeholder="Name" />
+        <input [(ngModel)]="receiverEmail" class="shareMovieInput" placeholder="Email" />
+        <button class="shareMovieButton">Send</button>
+        <button id="shareMovieBackButton" class="shareMovieButton">Go Back</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,7 @@ import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actr
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers';
 import { SettingsPageComponent } from './Pages/settings-page/settings-page.component';
+import { ShareMoviePageComponent } from './Pages/share-movie-page/share-movie-page.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { SettingsPageComponent } from './Pages/settings-page/settings-page.compo
     MainPageComponent,
     ActorActressPageComponent,
     SettingsPageComponent,
+    ShareMoviePageComponent,
   ],
   imports: [
     BrowserModule,
