@@ -5,12 +5,16 @@ import { ActorIDResults } from '../JSON Classes/ActorID';
 import { ActorBioResult } from '../JSON Classes/ActorBio';
 import { ActorMovie } from '../JSON Classes/ActorMovie';
 import { ActorInfo } from '../JSON Classes/ActorInfo';
+import { MovieInfo } from '../JSON Classes/MovieInfo';
+import { Movie } from '../interfaces/movie.interface';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ActorAPIService {
 
   actorAPIURL = 'https://data-imdb1.p.rapidapi.com/actor'
+  movieAPIURL = 'https://data-imdb1.p.rapidapi.com/movie/id'
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -21,6 +25,11 @@ export class ActorAPIService {
   };
 
   constructor(private httpClient: HttpClient) { }
+
+  getMovieInfo(movieId: string): Observable<MovieInfo> {
+      var apiURL = `${this.movieAPIURL}${movieId}`
+      return this.httpClient.get<MovieInfo>(apiURL, this.httpOptions);
+  }
 
   getActorID(actorName: string): Observable<ActorIDResults> {
     var urlActorName = this.addPercentTwenty(actorName)
