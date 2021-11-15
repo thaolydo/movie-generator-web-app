@@ -80,7 +80,8 @@
         <div>
           <input placeholder="Phone Number" class="settingsPageInput" />
         </div>
-        <button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button (click)="showAccountDetailsModal()" class="settingsModalBackButton">Go Back</button>
       </div>
     </div>
 
@@ -159,7 +160,8 @@
             </div>
           </div>
         </div>
-        <button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button (click)="showRecommendationModal()" class="settingsModalBackButton">Go Back</button>
       </div>
     </div>
 
@@ -215,7 +217,8 @@
             </div>
           </div>
         </div>
-        <button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button (click)="showAppearanceModal()" class="settingsModalBackButton">Go Back</button>
       </div>
     </div>
     <div style="display: none" id="historyPopup">
@@ -264,7 +267,8 @@
             </select>
           </div>
         </div>
-        <button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button (click)="showHistoryModal()" class="settingsModalBackButton">Go Back</button>
       </div>
     </div>
     <div style="display: none" id="securityPopup">
@@ -324,7 +328,8 @@
             </select>
           </div>
         </div>
-        <button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button (click)="showSecurityModal()" class="settingsModalBackButton">Go Back</button>
       </div>
     </div>
     <div style="display: none" id="helpPopup">
@@ -366,7 +371,8 @@
           class="settingsPageLink"
           placeholder="How to link external accounts"
         />
-        <button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button (click)="showHelpModal()" class="settingsModalBackButton">Go Back</button>
       </div>
     </div>
     <div style="display: none" id="termsAndConditionsPopup">
@@ -677,7 +683,7 @@
             loss or damage of any nature.
           </p>
         </div>
-        <button id="accountPreferencesButton">I Agree</button>
+        <button mat-raised-button (click)="showTAndCModal()" id="accountPreferencesButton">I Agree</button>
       </div>
     </div>
     <div style="display: none" id="feedbackPopup">
@@ -690,12 +696,13 @@
 Looking forward to your response.
 </textarea
         >
-        <button id="accountPreferencesButton">Submit Feedback</button>
+        <button mat-raised-button id="accountPreferencesButton">Submit Feedback</button>
+        <button mat-raised-button (click)="showFeedbackModal()" class="settingsModalBackButton">Go Back</button>
       </div>
     </div>
     <div style="display: none" id="signoutPopup">
       <div id="signOutInnerDiv">
-        <h1 class="settingsHeader">Sign Out</h1>
+        <h1  class="settingsHeader">Sign Out</h1>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router"
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings-page',
@@ -7,7 +7,7 @@ import {Router} from "@angular/router"
   styleUrls: ['./settings-page.component.scss'],
 })
 export class SettingsPageComponent implements OnInit {
-  settingsModalVisible: string = 'block';
+  settingsModalVisible: string = 'flex';
   clickModalVisible: string = 'none';
   AccountDetailsModalVisible: string = 'none';
   RecommendationModalVisible: string = 'none';
@@ -37,10 +37,10 @@ export class SettingsPageComponent implements OnInit {
 
     if (this.settingsModalVisible == 'none') {
       // shows the settings modal
-      this.settingsModalVisible = 'block';
+      this.settingsModalVisible = 'flex';
       if (mainSettingsModal)
-        (mainSettingsModal as HTMLFormElement).style.display = 'block';
-    } else if (this.settingsModalVisible == 'block') {
+        (mainSettingsModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.settingsModalVisible == 'flex') {
       // hides the settings modal
       this.settingsModalVisible = 'none';
       if (mainSettingsModal)
@@ -79,10 +79,10 @@ export class SettingsPageComponent implements OnInit {
 
     if (this.settingsModalVisible == 'none') {
       // shows the settings modal
-      this.settingsModalVisible = 'block';
+      this.settingsModalVisible = 'flex';
       if (mainSettingsModal)
-        (mainSettingsModal as HTMLFormElement).style.display = 'block';
-    } else if (this.settingsModalVisible == 'block') {
+        (mainSettingsModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.settingsModalVisible == 'flex') {
       // hides the settings modal
       this.settingsModalVisible = 'none';
       if (mainSettingsModal)
@@ -119,10 +119,10 @@ export class SettingsPageComponent implements OnInit {
 
     if (this.settingsModalVisible == 'none') {
       // shows the settings modal
-      this.settingsModalVisible = 'block';
+      this.settingsModalVisible = 'flex';
       if (mainSettingsModal)
-        (mainSettingsModal as HTMLFormElement).style.display = 'block';
-    } else if (this.settingsModalVisible == 'block') {
+        (mainSettingsModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.settingsModalVisible == 'flex') {
       // hides the settings modal
       this.settingsModalVisible = 'none';
       if (mainSettingsModal)
@@ -159,10 +159,10 @@ export class SettingsPageComponent implements OnInit {
 
     if (this.settingsModalVisible == 'none') {
       // shows the settings modal
-      this.settingsModalVisible = 'block';
+      this.settingsModalVisible = 'flex';
       if (mainSettingsModal)
-        (mainSettingsModal as HTMLFormElement).style.display = 'block';
-    } else if (this.settingsModalVisible == 'block') {
+        (mainSettingsModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.settingsModalVisible == 'flex') {
       // hides the settings modal
       this.settingsModalVisible = 'none';
       if (mainSettingsModal)
@@ -190,7 +190,7 @@ export class SettingsPageComponent implements OnInit {
       if (historyPopUp)
         (historyPopUp as HTMLFormElement).style.display = 'none';
     }
-  }
+  };
 
   showSecurityModal = () => {
     let securityPopup = document.getElementById('securityPopup');
@@ -199,10 +199,10 @@ export class SettingsPageComponent implements OnInit {
 
     if (this.settingsModalVisible == 'none') {
       // shows the settings modal
-      this.settingsModalVisible = 'block';
+      this.settingsModalVisible = 'flex';
       if (mainSettingsModal)
-        (mainSettingsModal as HTMLFormElement).style.display = 'block';
-    } else if (this.settingsModalVisible == 'block') {
+        (mainSettingsModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.settingsModalVisible == 'flex') {
       // hides the settings modal
       this.settingsModalVisible = 'none';
       if (mainSettingsModal)
@@ -230,7 +230,7 @@ export class SettingsPageComponent implements OnInit {
       if (securityPopup)
         (securityPopup as HTMLFormElement).style.display = 'none';
     }
-  }
+  };
 
   showHelpModal = () => {
     let showHelpPopUp = document.getElementById('helpPopup');
@@ -239,10 +239,10 @@ export class SettingsPageComponent implements OnInit {
 
     if (this.settingsModalVisible == 'none') {
       // shows the settings modal
-      this.settingsModalVisible = 'block';
+      this.settingsModalVisible = 'flex';
       if (mainSettingsModal)
-        (mainSettingsModal as HTMLFormElement).style.display = 'block';
-    } else if (this.settingsModalVisible == 'block') {
+        (mainSettingsModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.settingsModalVisible == 'flex') {
       // hides the settings modal
       this.settingsModalVisible = 'none';
       if (mainSettingsModal)
@@ -270,7 +270,7 @@ export class SettingsPageComponent implements OnInit {
       if (showHelpPopUp)
         (showHelpPopUp as HTMLFormElement).style.display = 'none';
     }
-  }
+  };
 
   showTAndCModal = () => {
     let showTAndCPopUp = document.getElementById('termsAndConditionsPopup');
@@ -279,10 +279,10 @@ export class SettingsPageComponent implements OnInit {
 
     if (this.settingsModalVisible == 'none') {
       // shows the settings modal
-      this.settingsModalVisible = 'block';
+      this.settingsModalVisible = 'flex';
       if (mainSettingsModal)
-        (mainSettingsModal as HTMLFormElement).style.display = 'block';
-    } else if (this.settingsModalVisible == 'block') {
+        (mainSettingsModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.settingsModalVisible == 'flex') {
       // hides the settings modal
       this.settingsModalVisible = 'none';
       if (mainSettingsModal)
@@ -310,7 +310,7 @@ export class SettingsPageComponent implements OnInit {
       if (showTAndCPopUp)
         (showTAndCPopUp as HTMLFormElement).style.display = 'none';
     }
-  }
+  };
 
   showFeedbackModal = () => {
     let showFeedbackModal = document.getElementById('feedbackPopup');
@@ -319,10 +319,10 @@ export class SettingsPageComponent implements OnInit {
 
     if (this.settingsModalVisible == 'none') {
       // shows the settings modal
-      this.settingsModalVisible = 'block';
+      this.settingsModalVisible = 'flex';
       if (mainSettingsModal)
-        (mainSettingsModal as HTMLFormElement).style.display = 'block';
-    } else if (this.settingsModalVisible == 'block') {
+        (mainSettingsModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.settingsModalVisible == 'flex') {
       // hides the settings modal
       this.settingsModalVisible = 'none';
       if (mainSettingsModal)
@@ -350,9 +350,11 @@ export class SettingsPageComponent implements OnInit {
       if (showFeedbackModal)
         (showFeedbackModal as HTMLFormElement).style.display = 'none';
     }
-  }
+  };
 
   signOutFromSettings = () => {
-    this.router.navigate(['/landing-page'])
-  }
+    this.router.navigate(['/landing-page']);
+  };
+
+ 
 }

@@ -13,8 +13,8 @@
         <p id="shareMoviePageParagraph">Who would you like to share this with?</p>
         <input [(ngModel)]="receiverName" class="shareMovieInput" placeholder="Name" />
         <input [(ngModel)]="receiverEmail" class="shareMovieInput" placeholder="Email" />
-        <button (click)="showShareMovieSentModal()" class="shareMovieButton">Send</button>
-        <button id="shareMovieBackButton" class="shareMovieButton">Go Back</button>
+        <button mat-raised-button (click)="showShareMovieSentModal()" class="shareMovieButton">Send</button>
+        <button mat-raised-button id="shareMovieBackButton" class="shareMovieButton">Go Back</button>
       </div>
     </div>
     
