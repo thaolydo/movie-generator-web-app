@@ -8,20 +8,20 @@ import { SignupPageComponent } from './Pages/signup-page/signup-page.component';
 import { ResetpasswordPageComponent } from './Pages/resetpassword-page/resetpassword-page.component';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actress-page.component';
+import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing-page', pathMatch: 'full' },
-  { path: "landing-page", component: LandingPageComponent },
-  { path: "login-page", component: LoginPageComponent },
-  { path: "signup-page", component: SignupPageComponent },
-  { path: "resetpassword-page", component: ResetpasswordPageComponent },
-  { path: "main-page", component: MainPageComponent },
-  { path: "actor-actress-page", component: ActorActressPageComponent },
-  { path: "settings-page", component: SettingsPageComponent },
-  
- 
-  {path: "share-movie-page", component: ShareMoviePageComponent}
-
+  { path: 'landing-page', component: LandingPageComponent },
+  { path: 'login-page', component: LoginPageComponent },
+  { path: 'signup-page', component: SignupPageComponent },
+  { path: 'resetpassword-page', component: ResetpasswordPageComponent },
+  { path: 'main-page', component: MainPageComponent },
+  { path: 'actor-actress-page', component: ActorActressPageComponent },
+  { path: 'settings-page', component: SettingsPageComponent },
+  { path: 'share-movie-page', component: ShareMoviePageComponent },
+  { path: 'share-movie-page', component: ShareMoviePageComponent },
+  { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 
 @NgModule({

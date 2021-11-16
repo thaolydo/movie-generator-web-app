@@ -18,6 +18,7 @@ import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actr
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers';
 import { ShareMoviePageComponent } from './Pages/share-movie-page/share-movie-page.component';
+import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
 
 
 
@@ -32,6 +33,7 @@ import { ShareMoviePageComponent } from './Pages/share-movie-page/share-movie-pa
     ActorActressPageComponent,
     SettingsPageComponent,
     ShareMoviePageComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
