@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: 'actor-actress-page', component: ActorActressPageComponent },
   { path: 'settings-page', component: SettingsPageComponent },
   { path: 'share-movie-page', component: ShareMoviePageComponent },
-  { path: 'share-movie-page', component: ShareMoviePageComponent },
   { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
 ];
 

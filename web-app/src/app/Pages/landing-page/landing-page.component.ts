@@ -12,29 +12,12 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LandingPageComponent implements OnInit {
 
-  curUser: CognitoUser | null | undefined = null;
-  userInfo: UserInfo | null | undefined = null;
-
   constructor(
     private authService: AuthService,
     private snackBar: MatSnackBar,
   ) { }
 
   async ngOnInit() {
-    try {
-      this.curUser = await this.authService.getCurUser();
-      this.userInfo = await this.authService.getUserAttributes();
-    } catch (err) {
-      console.log('User not logged in');
-    }
-  }
-
-  async onLogout() {
-    const response = await this.authService.signOut();
-    console.log(response);
-    this.curUser = null;
-    this.userInfo = null;
-    this.snackBar.open('Successfully logged out', 'close', { duration: 3000 });
   }
 
 }

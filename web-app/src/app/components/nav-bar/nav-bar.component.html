@@ -1,0 +1,31 @@
+<div id="navBar">
+  <span id="logo" routerLink="/landing-page">
+    <p>Movie</p>
+    Generator
+  </span>
+
+  <!-- Account or Signin -->
+  <span>
+    <button mat-icon-button *ngIf="curUser" [matMenuTriggerFor]="menu">
+      <mat-icon>person</mat-icon>
+    </button>
+    {{userInfo?.firstName}} {{userInfo?.lastName}}
+  </span>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/settings-page">
+      <span>
+        <mat-icon>settings</mat-icon>
+        Settings
+      </span>
+    </button>
+    <button mat-menu-item (click)="onLogout()">
+      <span>
+        <mat-icon>logout</mat-icon>
+        Logout
+      </span>
+    </button>
+  </mat-menu>
+
+  <!-- Sign in -->
+  <button mat-raised-button *ngIf="!curUser" class="sign-in-button" routerLink="/login-page">Sign In</button>
+</div>

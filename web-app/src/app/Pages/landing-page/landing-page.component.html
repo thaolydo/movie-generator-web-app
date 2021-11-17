@@ -1,42 +1,12 @@
-<div id="landingPageBackground">
-  <div id="landingPageNavBar">
-    <span id="landingPageLogo"><p>Movie</p> Generator</span>
-
-    <!-- Account or Signin -->
-    <span>
-      <button mat-icon-button *ngIf="curUser" [matMenuTriggerFor]="menu">
-        <mat-icon>person</mat-icon>
-      </button>
-      {{userInfo?.firstName}} {{userInfo?.lastName}}
-    </span>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/settings-page">
-        <span>
-          <mat-icon>settings</mat-icon>
-          Settings
-        </span>
-      </button>
-      <button mat-menu-item (click)="onLogout()">
-        <span>
-          <mat-icon>logout</mat-icon>
-          Logout
-        </span>
-      </button>
-    </mat-menu>
-
-    <!-- Sign in -->
-    <button mat-raised-button *ngIf="!curUser" id="landingPageSignIn" routerLink="/login-page">Sign In</button>
-  </div>
-  <div id="landingPageMainContent">
-    <span><p class="landingPageMainHeader">Let Movie Generator choose </p><p class="landingPageMainHeader">the best movie for you.</p></span>
-    <h3>One click. Movie recommended.</h3>
-    <h5>
-      Want to find the perfect film? Enter your email below to create an
-      account.
-    </h5>
-    <div id="landingPageEmailSubmit">
-      <input placeholder="Email address" id="landingPageInput"/>
-      <button id="landingPageInputButton">Create an Account</button>
-    </div>
+<div id="landingPageMainContent">
+  <span><p class="landingPageMainHeader">Let Movie Generator choose </p><p class="landingPageMainHeader">the best movie for you.</p></span>
+  <h3>One click. Movie recommended.</h3>
+  <h5>
+    Want to find the perfect film? Enter your email below to create an
+    account.
+  </h5>
+  <div id="landingPageEmailSubmit">
+    <input placeholder="Email address" id="landingPageInput"/>
+    <button id="landingPageInputButton">Create an Account</button>
   </div>
 </div>

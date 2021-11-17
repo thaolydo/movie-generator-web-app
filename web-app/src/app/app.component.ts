@@ -16,22 +16,13 @@ export class AppComponent {
   constructor(private authService: AuthService, private store: Store<userAppState>) {
   }
 
-  async onSignUp() {
-    const res = await this.authService.signUp('lydo1797@gmail.com', 'test1234');
-    console.log('res =', res);
-  }
-
-  async onLogin() {
-    const res = await this.authService.signIn('lydo1797@gmail.com', 'test1234');
-    console.log('res =', res);
-  }
   userList$!: Observable<Array<User>>;
- 
+
   ngOnInit(): void {
     this.userList$ = this.store.select((store) => store.user.users);
     console.log(this.userList$)
   }
-  
+
 }
 
 

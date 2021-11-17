@@ -19,6 +19,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers } from './store/reducers';
 import { ShareMoviePageComponent } from './Pages/share-movie-page/share-movie-page.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.com
     SettingsPageComponent,
     ShareMoviePageComponent,
     PageNotFoundComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
