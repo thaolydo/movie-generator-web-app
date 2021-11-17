@@ -19,7 +19,7 @@
     <div id="accountDetailsInnerDiv">
       <h1 class="settingsHeader">Edit Account</h1>
       <div><input [(ngModel)]="firstName" placeholder="First Name" class="settingsPageInput" /></div>
-      <div><input [(ngModel)]="lastName" class="settingsPageInput" /></div>
+      <div><input [(ngModel)]="lastName" placeholder="Last Name" class="settingsPageInput" /></div>
       <div>
         <input [(ngModel)]="phoneNumber" placeholder="Phone Number" class="settingsPageInput" />
       </div>
@@ -276,46 +276,77 @@
     </div>
   </div>
   <div style="display: none" id="helpPopup">
-    <div id="helpInnerDiv">
+    <div  id="helpInnerDiv">
       <h1 class="settingsHeader">Help</h1>
       <input
-        (click)="showAccountDetailsModal()"
+        (click)="showHelpUsageModal()"
         readonly
-        class="settingsPageLink"
+        class="settingsPageLinkHelp"
         placeholder="How to use Movie Generator"
       />
       <input
-        (click)="showRecommendationModal()"
+        (click)="showHelpContactModal()"
         readonly
-        class="settingsPageLink"
+        class="settingsPageLinkHelp"
         placeholder="Contact Us"
       />
       <input
-        (click)="showAppearanceModal()"
+        (click)="showHelpDeleteModal()"
         readonly
-        class="settingsPageLink"
+        class="settingsPageLinkHelp"
         placeholder="How to delete account"
       />
       <input
         (click)="showAccountDetailsModal()"
         readonly
-        class="settingsPageLink"
+        class="settingsPageLinkHelp"
         placeholder="How to create playlists"
       />
       <input
         (click)="showRecommendationModal()"
         readonly
-        class="settingsPageLink"
+        class="settingsPageLinkHelp"
         placeholder="How to share a movie"
       />
       <input
         (click)="showAppearanceModal()"
         readonly
-        class="settingsPageLink"
+        class="settingsPageLinkHelp"
         placeholder="How to link external accounts"
       />
-      <button mat-raised-button id="accountPreferencesButton">Submit</button>
+      
       <button mat-raised-button (click)="showHelpModal()" class="settingsModalBackButton">Go Back</button>
+    </div>
+  </div>
+  <div style="display: none" id="helpUsagePopup">
+    <div id="helpUsageInnerDiv">
+      <p>Movie Generator is a web-based application allowing user to find the perfect movie for the right occasion.
+
+        You can find the perfect movie in three different ways:
+        
+        Head over the main page to find recommended popular movies
+        Search for a movie based on its genre
+        Search for a completely random movie and be pleasantly surprised
+        
+        Enjoy!
+        </p>
+        <button mat-raised-button (click)="showHelpUsageModal()" class="settingsModalBackButton">Close</button>
+    </div>
+  </div>
+  <div style="display: none" id="helpContactPopup">
+    <div id="helpDeleteInnerDiv">
+      <p>To contact us, please send an email to cecs491bteamwap@amail.com. Be sure to include your issue in the subject line and information for us to reply.
+
+        </p>
+        <button mat-raised-button (click)="showHelpContactModal()" class="settingsModalBackButton">Close</button>
+    </div>
+  </div>
+  <div style="display: none" id="helpDeletePopup">
+    <div id="helpDeleteInnerDiv">
+      <p>If you would like to delete your account, we are sad to see you go but we can be reached at cecs491bteamwap@amail.com. Be sure to include your username and DELETE-ACCOUNT in the subject line for further assistance.
+
+        </p>
+        <button mat-raised-button (click)="showHelpDeleteModal()" class="settingsModalBackButton">Close</button>
     </div>
   </div>
   <div style="display: none" id="termsAndConditionsPopup">

@@ -19,6 +19,9 @@ export class SettingsPageComponent implements OnInit {
   helpModalVisible: string = 'none';
   tAndCModalVisible: string = 'none';
   feedbackModalVisible: string = 'none';
+  helpUsageModalVisible: string = 'none';
+  helpContactModalVisible: string = 'none';
+  helpDeleteModalVisible: string = 'none';
 
   firstName: string = '';
   lastName: string = '';
@@ -374,6 +377,93 @@ export class SettingsPageComponent implements OnInit {
         (showFeedbackModal as HTMLFormElement).style.display = 'none';
     }
   };
+
+  showHelpUsageModal = () => {
+    let showHelpUsageModal = document.getElementById('helpUsagePopup');
+    let mainHelpModal = document.getElementById('helpPopup');
+
+    if (this.helpModalVisible == 'none') {
+      // shows the help modal
+      this.helpModalVisible = 'flex';
+      if (mainHelpModal)
+        (mainHelpModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.helpModalVisible == 'flex') {
+      // hides the help modal
+      this.helpModalVisible = 'none';
+      if (mainHelpModal)
+        (mainHelpModal as HTMLFormElement).style.display = 'none';
+    }
+
+    if (this.helpUsageModalVisible == 'none') {
+      // shows the help usage modal
+      this.helpUsageModalVisible = 'flex';
+      if (showHelpUsageModal)
+        (showHelpUsageModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.helpUsageModalVisible == 'flex') {
+      // hides the help usage modal
+      this.helpUsageModalVisible = 'none';
+      if (showHelpUsageModal)
+        (showHelpUsageModal as HTMLFormElement).style.display = 'none';
+    }
+  }
+
+  showHelpContactModal = () => {
+    let showHelpContactModal = document.getElementById('helpContactPopup');
+    let mainHelpModal = document.getElementById('helpPopup');
+
+    if (this.helpModalVisible == 'none') {
+      // shows the help modal
+      this.helpModalVisible = 'flex';
+      if (mainHelpModal)
+        (mainHelpModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.helpModalVisible == 'flex') {
+      // hides the help modal
+      this.helpModalVisible = 'none';
+      if (mainHelpModal)
+        (mainHelpModal as HTMLFormElement).style.display = 'none';
+    }
+
+    if (this.helpContactModalVisible == 'none') {
+      // shows the help contact modal
+      this.helpContactModalVisible = 'flex';
+      if (showHelpContactModal)
+        (showHelpContactModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.helpContactModalVisible == 'flex') {
+      // hides the help contact modal
+      this.helpContactModalVisible = 'none';
+      if (showHelpContactModal)
+        (showHelpContactModal as HTMLFormElement).style.display = 'none';
+    }
+  }
+
+  showHelpDeleteModal = () => {
+    let showHelpDeleteModal = document.getElementById('helpDeletePopup');
+    let mainHelpModal = document.getElementById('helpPopup');
+
+    if (this.helpModalVisible == 'none') {
+      // shows the help modal
+      this.helpModalVisible = 'flex';
+      if (mainHelpModal)
+        (mainHelpModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.helpModalVisible == 'flex') {
+      // hides the help modal
+      this.helpModalVisible = 'none';
+      if (mainHelpModal)
+        (mainHelpModal as HTMLFormElement).style.display = 'none';
+    }
+
+    if (this.helpDeleteModalVisible == 'none') {
+      // shows the help delete modal
+      this.helpDeleteModalVisible = 'flex';
+      if (showHelpDeleteModal)
+        (showHelpDeleteModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.helpDeleteModalVisible == 'flex') {
+      // hides the help delete modal
+      this.helpDeleteModalVisible = 'none';
+      if (showHelpDeleteModal)
+        (showHelpDeleteModal as HTMLFormElement).style.display = 'none';
+    }
+  }
 
   signOutFromSettings = () => {
     this.router.navigate(['/landing-page']);

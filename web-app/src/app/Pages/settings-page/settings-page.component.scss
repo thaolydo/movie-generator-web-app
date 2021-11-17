@@ -71,15 +71,22 @@ $buttonBorderColor: rgb(138, 43, 226);
   text-align: center;
 }
 
-.settingsPageLink {
+.settingsPageLink,
+.settingsPageLinkHelp {
   color: white;
   background-color: #333;
   border-radius: 5px;
   border: none;
   width: 25vw;
-  height: 3em;
+  height: 5vh;
   padding: 8px 20px 8px 20px;
   margin-bottom: 1vh;
+  text-align: center;
+  padding-top: 1%;
+}
+.settingsPageLinkHelp {
+  padding-top: 2%;
+  height: 3vh;
 }
 
 .settingsHeader {
@@ -116,7 +123,15 @@ $buttonBorderColor: rgb(138, 43, 226);
   width: 30vw;
 }
 
-#appearanceInnerDiv, #helpInnerDiv, #securityInnerDiv, #historyInnerDiv, #tAndCInnerDiv, #feedbackInnerDiv {
+#appearanceInnerDiv,
+#helpInnerDiv,
+#securityInnerDiv,
+#historyInnerDiv,
+#tAndCInnerDiv,
+#feedbackInnerDiv,
+#helpUsageInnerDiv,
+#helpContactInnerDiv,
+#helpDeleteInnerDiv {
   display: flex;
   flex-direction: column;
   width: 30vw;
@@ -126,7 +141,6 @@ $buttonBorderColor: rgb(138, 43, 226);
 #accountPreferencesOuterColumnContainer {
   display: flex;
   justify-content: space-between;
-
 }
 
 #accountPreferencesHeader {
@@ -162,10 +176,10 @@ $buttonBorderColor: rgb(138, 43, 226);
   height: 6vh;
   border-radius: 5px;
   border: none;
-  background: #27695A;
-background: -webkit-linear-gradient(top left, #27695A, #1C278C);
-background: -moz-linear-gradient(top left, #27695A, #1C278C);
-background: linear-gradient(to bottom right, #27695A, #1C278C);
+  background: #27695a;
+  background: -webkit-linear-gradient(top left, #27695a, #1c278c);
+  background: -moz-linear-gradient(top left, #27695a, #1c278c);
+  background: linear-gradient(to bottom right, #27695a, #1c278c);
   padding: 8px 0px 8px 0px;
   margin-top: 2vh;
 }
@@ -183,10 +197,19 @@ background: linear-gradient(to bottom right, #27695A, #1C278C);
   justify-content: center;
 }
 
-#appearancePopup, #helpPopup, #securityPopup, #historyPopup, #termsAndConditionsPopup, #feedbackPopup {
+#appearancePopup,
+#helpPopup,
+#securityPopup,
+#historyPopup,
+#termsAndConditionsPopup,
+#feedbackPopup,
+#helpUsagePopup,
+#helpContactPopup,
+#helpDeletePopup {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
 }
 
 #tAndCDiv {
@@ -197,22 +220,18 @@ background: linear-gradient(to bottom right, #27695A, #1C278C);
   padding-left: 1vw;
   padding-right: 1vw;
 
-
-
   &::-webkit-scrollbar {
-		width: 4px;
-		background-color: #e7e6e6;
-		border-radius: 5px;
+    width: 4px;
+    background-color: #e7e6e6;
+    border-radius: 5px;
+  }
 
-	}
-
-	&::-webkit-scrollbar-thumb {
-		background: #888;
-		border-radius: 5px;
-		height: 55px;
-		width: 4px;
-
-	}
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+    height: 55px;
+    width: 4px;
+  }
 }
 
 h4 {
@@ -221,9 +240,9 @@ h4 {
 
 #feedbackTextArea {
   padding: 10px;
-    max-width: 100%;
-    line-height: 1.5;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-shadow: 1px 1px 1px #999;
+  max-width: 100%;
+  line-height: 1.5;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px #999;
 }
