@@ -5,14 +5,25 @@
     <div id="category">
       <h1>Featured Today</h1>
     </div>
-    <div id="category">
-      <h1>Explore From Your Watchlist</h1>
-    </div>
-    <div id="category">
-      <h1>Fan Favorites</h1>
-    </div>
-    <div id="category">
-      <h1>Top Box Office (US)</h1>
-    </div>
+    <div id="actorPageModal">
+      <div id="actorPageInnerDiv">
+        <input [(ngModel)]="searchBarText" type="text" name="searchBarText" id="searchBarText" placeholder="Search Movie Generator">
+        <div id="category">
+            <h1>Most Popular Movies</h1>
+            <div id="carousel">
+              <div *ngFor="let moviePoster of popularMoviePosters" id="slide"> 
+                <img [src]='moviePoster' id="moviePoster"/>
+              </div>
+            </div>
+        </div>
+        <div id="category">
+            <h1>Movies Coming Soon</h1>
+            <div id="carousel">
+              <div *ngFor="let moviePoster of comingSoonPosters" id="slide"> 
+                <img [src]='moviePoster' id="moviePoster"/>
+              </div>
+            </div>
+        </div>
+      </div>
   </div>
 </div>

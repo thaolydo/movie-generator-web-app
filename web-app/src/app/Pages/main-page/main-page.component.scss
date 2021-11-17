@@ -2,11 +2,23 @@ $mainFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $buttonBackground: rgb(147, 112, 219);
 $buttonBorderColor: rgb(138, 43, 226);
 
+#actorPageBackground {
+  overflow: hidden;
+  height: 1350px;
+  width: 100%;
+  background: #ebf606;
+  background: -webkit-linear-gradient(top right, #ebf606, #fa1894);
+  background: -moz-linear-gradient(top right, #ebf606, #fa1894);
+  background: linear-gradient(to bottom left, #ebf606, #fa1894);
+  display: flex;
+  flex-direction: column;
+}
+
 #actorPageModal {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 5px;
   width: 60vw;
-  height: 1850px;
+  height: 925px;
   display: flex;
   flex-direction: column;
   align-self: center;
@@ -40,9 +52,28 @@ $buttonBorderColor: rgb(138, 43, 226);
 }
 
 #category {
-    margin-bottom: 400px;
+    margin-bottom: 25px;
 }
 
 #category label {
     font-size: 1000;
+}
+
+#carousel {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: auto;
+}
+
+#carousel .slide {
+  white-space: nowrap;
+}
+
+#moviePoster {
+  width: 225px;
+  height: 325px;
+  margin-right: 20px;
 }
