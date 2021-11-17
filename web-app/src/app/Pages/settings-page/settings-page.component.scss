@@ -106,7 +106,7 @@ $buttonBorderColor: rgb(138, 43, 226);
   border-radius: 5px;
   border: none;
   width: 25vw;
-  height: 2vh;
+  height: 3em;
   padding: 8px 20px 8px 20px;
   margin-bottom: 1vh;
 }
@@ -155,7 +155,7 @@ $buttonBorderColor: rgb(138, 43, 226);
 #accountPreferencesOuterColumnContainer {
   display: flex;
   justify-content: space-between;
-  
+
 }
 
 #accountPreferencesHeader {
@@ -220,19 +220,19 @@ background: linear-gradient(to bottom right, #27695A, #1C278C);
 
 #tAndCDiv {
   height: 25vh;
- 
+
   overflow-y: scroll;
   color: #888;
   padding-left: 1vw;
   padding-right: 1vw;
-  
-  
+
+
 
   &::-webkit-scrollbar {
 		width: 4px;
 		background-color: #e7e6e6;
 		border-radius: 5px;
-    
+
 	}
 
 	&::-webkit-scrollbar-thumb {
@@ -240,7 +240,7 @@ background: linear-gradient(to bottom right, #27695A, #1C278C);
 		border-radius: 5px;
 		height: 55px;
 		width: 4px;
-    
+
 	}
 }
 

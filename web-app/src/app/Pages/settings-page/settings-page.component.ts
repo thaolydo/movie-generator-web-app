@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-settings-page',
@@ -18,9 +20,30 @@ export class SettingsPageComponent implements OnInit {
   tAndCModalVisible: string = 'none';
   feedbackModalVisible: string = 'none';
 
-  constructor(private router: Router) {}
+  firstName: string = '';
+  lastName: string = '';
+  phoneNumber: string = '';
 
-  ngOnInit(): void {}
+  constructor(private router: Router,
+    private authService: AuthService,
+    private snackBar: MatSnackBar,
+  ) { }
+
+  async ngOnInit() {
+    const userInfo = await this.authService.getUserAttributes();
+    this.firstName = userInfo.firstName!;
+    this.lastName = userInfo.lastName!;
+    this.phoneNumber = userInfo.phoneNumber!;
+  }
+
+  async onSaveAccountDetails() {
+    await this.authService.updateUserAttributes({
+      firstName: this.firstName,
+      lastName: this.lastName,
+      phoneNumber: this.phoneNumber
+    });
+    this.snackBar.open('Account details are saved successfully', 'close', { duration: 3000 });
+  }
 
   alertMe = () => {
     alert('I work');
@@ -356,5 +379,5 @@ export class SettingsPageComponent implements OnInit {
     this.router.navigate(['/landing-page']);
   };
 
- 
+
 }

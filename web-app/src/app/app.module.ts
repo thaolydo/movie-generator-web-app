@@ -20,8 +20,6 @@ import { reducers } from './store/reducers';
 import { ShareMoviePageComponent } from './Pages/share-movie-page/share-movie-page.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

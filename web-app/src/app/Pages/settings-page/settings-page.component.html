@@ -1,6 +1,6 @@
 <div id="settingsPageBackground">
   <div id="settingsPageNavBar">
-    <span id="settingsPageLogo"
+    <span style="cursor: pointer;" routerLink="/landing-page" id="settingsPageLogo"
       ><p>Movie</p>
       Generator</span
     >
@@ -10,60 +10,14 @@
     <div id="settingsPageInnerDiv">
       <h1 id="settingsPageHeader">Settings</h1>
       <div id="settingsPageInputDiv">
-        <input
-          (click)="showAccountDetailsModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Account Details"
-        />
-        <input
-          (click)="showRecommendationModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Recommendation Preferences"
-        />
-        <input
-          (click)="showAppearanceModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Appearance"
-        />
-        <input
-          (click)="showHistoryModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="History"
-        />
-        <input
-          (click)="showSecurityModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Security"
-        />
-        <input
-          (click)="showHelpModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Help"
-        />
-        <input
-          (click)="showTAndCModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Terms and Conditions"
-        />
-        <input
-          (click)="showFeedbackModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Feedback"
-        />
-        <input
-          (click)="signOutFromSettings()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Sign Out"
-        />
+        <button mat-raised-button (click)="showAccountDetailsModal()" readonly class="settingsPageLink">Account Details</button>
+        <button mat-raised-button (click)="showRecommendationModal()" readonly class="settingsPageLink">Recommendation Preferences</button>
+        <button mat-raised-button (click)="showAppearanceModal()" readonly class="settingsPageLink">Appearance</button>
+        <button mat-raised-button (click)="showHistoryModal()" readonly class="settingsPageLink">History</button>
+        <button mat-raised-button (click)="showSecurityModal()" readonly class="settingsPageLink">Security</button>
+        <button mat-raised-button (click)="showHelpModal()" readonly class="settingsPageLink">Help</button>
+        <button mat-raised-button (click)="showTAndCModal()" readonly class="settingsPageLink">Terms and Conditions</button>
+        <button mat-raised-button (click)="showFeedbackModal()" readonly class="settingsPageLink">Feedback</button>
       </div>
     </div>
   </div>
@@ -72,15 +26,12 @@
     <div style="display: none" id="accountDetailsPopup">
       <div id="accountDetailsInnerDiv">
         <h1 class="settingsHeader">Edit Account</h1>
-        <div><input placeholder="First Name" class="settingsPageInput" /></div>
-        <div><input placeholder="Last Name" class="settingsPageInput" /></div>
+        <div><input [(ngModel)]="firstName" placeholder="First Name" class="settingsPageInput" /></div>
+        <div><input [(ngModel)]="lastName" class="settingsPageInput" /></div>
         <div>
-          <input placeholder="Email Address" class="settingsPageInput" />
+          <input [(ngModel)]="phoneNumber" placeholder="Phone Number" class="settingsPageInput" />
         </div>
-        <div>
-          <input placeholder="Phone Number" class="settingsPageInput" />
-        </div>
-        <button mat-raised-button id="accountPreferencesButton">Submit</button>
+        <button mat-raised-button (click)="onSaveAccountDetails()" id="accountPreferencesButton">Submit</button>
         <button mat-raised-button (click)="showAccountDetailsModal()" class="settingsModalBackButton">Go Back</button>
       </div>
     </div>
