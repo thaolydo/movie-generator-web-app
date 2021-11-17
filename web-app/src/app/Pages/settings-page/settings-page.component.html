@@ -1,702 +1,651 @@
-<div id="settingsPageBackground">
-  <div id="settingsPageNavBar">
-    <span id="settingsPageLogo"
-      ><p>Movie</p>
-      Generator</span
-    >
+<div id="settingsPageModal">
+  <div id="settingsPageInnerDiv">
+    <h1 id="settingsPageHeader">Settings</h1>
+    <div id="settingsPageInputDiv">
+      <button mat-raised-button (click)="showAccountDetailsModal()" readonly class="settingsPageLink">Account Details</button>
+      <button mat-raised-button (click)="showRecommendationModal()" readonly class="settingsPageLink">Recommendation Preferences</button>
+      <button mat-raised-button (click)="showAppearanceModal()" readonly class="settingsPageLink">Appearance</button>
+      <button mat-raised-button (click)="showHistoryModal()" readonly class="settingsPageLink">History</button>
+      <button mat-raised-button (click)="showSecurityModal()" readonly class="settingsPageLink">Security</button>
+      <button mat-raised-button (click)="showHelpModal()" readonly class="settingsPageLink">Help</button>
+      <button mat-raised-button (click)="showTAndCModal()" readonly class="settingsPageLink">Terms and Conditions</button>
+      <button mat-raised-button (click)="showFeedbackModal()" readonly class="settingsPageLink">Feedback</button>
+    </div>
   </div>
+</div>
 
-  <div id="settingsPageModal">
-    <div id="settingsPageInnerDiv">
-      <h1 id="settingsPageHeader">Settings</h1>
-      <div id="settingsPageInputDiv">
-        <input
-          (click)="showAccountDetailsModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Account Details"
-        />
-        <input
-          (click)="showRecommendationModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Recommendation Preferences"
-        />
-        <input
-          (click)="showAppearanceModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Appearance"
-        />
-        <input
-          (click)="showHistoryModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="History"
-        />
-        <input
-          (click)="showSecurityModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Security"
-        />
-        <input
-          (click)="showHelpModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Help"
-        />
-        <input
-          (click)="showTAndCModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Terms and Conditions"
-        />
-        <input
-          (click)="showFeedbackModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Feedback"
-        />
-        <input
-          (click)="signOutFromSettings()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Sign Out"
-        />
+<div style="display: none" id="clickModal">
+  <div style="display: none" id="accountDetailsPopup">
+    <div id="accountDetailsInnerDiv">
+      <h1 class="settingsHeader">Edit Account</h1>
+      <div><input [(ngModel)]="firstName" placeholder="First Name" class="settingsPageInput" /></div>
+      <div><input [(ngModel)]="lastName" class="settingsPageInput" /></div>
+      <div>
+        <input [(ngModel)]="phoneNumber" placeholder="Phone Number" class="settingsPageInput" />
       </div>
+      <button mat-raised-button (click)="onSaveAccountDetails()" id="accountPreferencesButton">Submit</button>
+      <button mat-raised-button (click)="showAccountDetailsModal()" class="settingsModalBackButton">Go Back</button>
     </div>
   </div>
 
-  <div style="display: none" id="clickModal">
-    <div style="display: none" id="accountDetailsPopup">
-      <div id="accountDetailsInnerDiv">
-        <h1 class="settingsHeader">Edit Account</h1>
-        <div><input placeholder="First Name" class="settingsPageInput" /></div>
-        <div><input placeholder="Last Name" class="settingsPageInput" /></div>
-        <div>
-          <input placeholder="Email Address" class="settingsPageInput" />
-        </div>
-        <div>
-          <input placeholder="Phone Number" class="settingsPageInput" />
-        </div>
-        <button id="accountPreferencesButton">Submit</button>
-      </div>
-    </div>
-
-    <div style="display: none" id="recommendatioPreferencesPopup">
-      <div id="recommendationInnerDiv">
-        <h1 id="accountPreferencesHeader">Edit Preferences</h1>
-        <div id="accountPreferencesOuterColumnContainer">
-          <div>
-            <div>
-              <input type="checkbox" id="horror" name="horror" />
-              <label class="accountPreferencesInput" for="horror">Horror</label>
-            </div>
-            <div>
-              <input type="checkbox" id="comedy" name="comedy" />
-              <label class="accountPreferencesInput" for="comedy">Comedy</label>
-            </div>
-            <div>
-              <input type="checkbox" id="action" name="action" />
-              <label class="accountPreferencesInput" for="action">Action</label>
-            </div>
-            <div>
-              <input type="checkbox" id="drama" name="drama" />
-              <label class="accountPreferencesInput" for="drama">Drama</label>
-            </div>
-          </div>
-          <div>
-            <div>
-              <input
-                type="checkbox"
-                id="scienceFiction"
-                name="scienceFiction"
-              />
-              <label class="accountPreferencesInput" for="scienceFiction"
-                >Science Fiction</label
-              >
-            </div>
-            <div>
-              <input type="checkbox" id="romance" name="romance" />
-              <label class="accountPreferencesInput" for="romance"
-                >Romance</label
-              >
-            </div>
-            <div>
-              <input type="checkbox" id="documentary" name="documentary" />
-              <label class="accountPreferencesInput" for="documentary"
-                >Documentary</label
-              >
-            </div>
-            <div>
-              <input type="checkbox" id="mystery" name="mystery" />
-              <label class="accountPreferencesInput" for="mystery"
-                >Mystery</label
-              >
-            </div>
-          </div>
-          <div>
-            <div>
-              <input type="checkbox" id="sports" name="sports" />
-              <label class="accountPreferencesInput" for="sports">Sport</label>
-            </div>
-            <div>
-              <input type="checkbox" id="drama" name="drama" />
-              <label class="accountPreferencesInput" for="drama">Drama</label>
-            </div>
-            <div>
-              <input type="checkbox" id="biography" name="biography" />
-              <label class="accountPreferencesInput" for="biography"
-                >Biography</label
-              >
-            </div>
-            <div>
-              <input type="checkbox" id="shortFilms" name="shortFilms" />
-              <label class="accountPreferencesInput" for="shortFilms"
-                >Short Film</label
-              >
-            </div>
-          </div>
-        </div>
-        <button id="accountPreferencesButton">Submit</button>
-      </div>
-    </div>
-
-    <div style="display: none" id="appearancePopup">
-      <div id="appearanceInnerDiv">
-        <h1 class="settingsHeader">Edit Appearance</h1>
-        <div>
-          <div class="accountPreferencesRows">
-            <div>
-              <label class="accountPreferencesInput" for="username"
-                >Display Username</label
-              >
-              <input type="checkbox" id="username" name="username" />
-            </div>
-            <div>
-              <label class="accountPreferencesInput" for="usernameTextColor"
-                >Username Text Color
-              </label>
-
-              <select name="usernameTextColor" id="usernameTextColor">
-                <option value="">Select:</option>
-                <option value="red">Red</option>
-                <option value="orange">Orange</option>
-                <option value="yellow">Yellow</option>
-                <option value="green">Green</option>
-                <option value="blue">Blue</option>
-                <option value="indigo">Indigo</option>
-              </select>
-            </div>
-          </div>
-          <div class="accountPreferencesRows">
-            <div>
-              <label class="accountPreferencesInput" for="mystery"
-                >Display User Photo</label
-              >
-              <input type="checkbox" id="mystery" name="mystery" />
-            </div>
-
-            <div>
-              <label class="accountPreferencesInput" for="usernameTextColor"
-                >Photo Border Color
-              </label>
-
-              <select name="usernameTextColor" id="usernameTextColor">
-                <option value="">Select:</option>
-                <option value="red">Red</option>
-                <option value="orange">Orange</option>
-                <option value="yellow">Yellow</option>
-                <option value="green">Green</option>
-                <option value="blue">Blue</option>
-                <option value="indigo">Indigo</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <button id="accountPreferencesButton">Submit</button>
-      </div>
-    </div>
-    <div style="display: none" id="historyPopup">
-      <div id="historyInnerDiv">
-        <h1 class="settingsHeader">Edit History</h1>
-        <div>
-          <a class="accountPreferencesInput">Clear search data </a>
-          <div>
-            <label class="accountPreferencesInput" for="auto-log-out"
-              >Delete history after how many days
-            </label>
-
-            <select name="auto-log-out-dropdown" id="auto-log-out">
-              <option value="0">0 days</option>
-              <option value="1">1 days</option>
-              <option value="2">2 days</option>
-              <option value="3">3 days</option>
-              <option value="4">4 days</option>
-              <option value="5">5 days</option>
-              <option value="6">6 days</option>
-              <option value="7">7 days</option>
-              <option value="8">8 days</option>
-              <option value="9">9 days</option>
-              <option value="10">10 days</option>
-              <option value="11">11 days</option>
-              <option value="12">12 days</option>
-              <option value="13">13 days</option>
-              <option value="14">14 days</option>
-              <option value="15">15 days</option>
-              <option value="16">16 days</option>
-              <option value="17">17 days</option>
-              <option value="18">18 days</option>
-              <option value="19">19 days</option>
-              <option value="20">20 days</option>
-              <option value="21">21 days</option>
-              <option value="22">22 days</option>
-              <option value="23">23 days</option>
-              <option value="24">24 days</option>
-              <option value="25">25 days</option>
-              <option value="26">26 days</option>
-              <option value="27">27 days</option>
-              <option value="28">28 days</option>
-              <option value="29">29 days</option>
-              <option value="30">30 days</option>
-              <option value="31">31 days</option>
-            </select>
-          </div>
-        </div>
-        <button id="accountPreferencesButton">Submit</button>
-      </div>
-    </div>
-    <div style="display: none" id="securityPopup">
-      <div id="securityInnerDiv">
-        <h1 class="settingsHeader">Edit Security</h1>
+  <div style="display: none" id="recommendatioPreferencesPopup">
+    <div id="recommendationInnerDiv">
+      <h1 id="accountPreferencesHeader">Edit Preferences</h1>
+      <div id="accountPreferencesOuterColumnContainer">
         <div>
           <div>
-            <label class="accountPreferencesInput" for="Two-factor"
-              >Require a code upon logging in
-            </label>
-            <input type="checkbox" id="Two-factor" name="Two-factor" />
+            <input type="checkbox" id="horror" name="horror" />
+            <label class="accountPreferencesInput" for="horror">Horror</label>
           </div>
           <div>
-            <label class="accountPreferencesInput" for="Sell-data"
-              >Don't sell my data</label
+            <input type="checkbox" id="comedy" name="comedy" />
+            <label class="accountPreferencesInput" for="comedy">Comedy</label>
+          </div>
+          <div>
+            <input type="checkbox" id="action" name="action" />
+            <label class="accountPreferencesInput" for="action">Action</label>
+          </div>
+          <div>
+            <input type="checkbox" id="drama" name="drama" />
+            <label class="accountPreferencesInput" for="drama">Drama</label>
+          </div>
+        </div>
+        <div>
+          <div>
+            <input
+              type="checkbox"
+              id="scienceFiction"
+              name="scienceFiction"
+            />
+            <label class="accountPreferencesInput" for="scienceFiction"
+              >Science Fiction</label
             >
-            <input type="checkbox" id="Sell-data" name="Sell-data" />
           </div>
           <div>
-            <label class="accountPreferencesInput" for="auto-log-out"
-              >Auto-log out after how many days
+            <input type="checkbox" id="romance" name="romance" />
+            <label class="accountPreferencesInput" for="romance"
+              >Romance</label
+            >
+          </div>
+          <div>
+            <input type="checkbox" id="documentary" name="documentary" />
+            <label class="accountPreferencesInput" for="documentary"
+              >Documentary</label
+            >
+          </div>
+          <div>
+            <input type="checkbox" id="mystery" name="mystery" />
+            <label class="accountPreferencesInput" for="mystery"
+              >Mystery</label
+            >
+          </div>
+        </div>
+        <div>
+          <div>
+            <input type="checkbox" id="sports" name="sports" />
+            <label class="accountPreferencesInput" for="sports">Sport</label>
+          </div>
+          <div>
+            <input type="checkbox" id="drama" name="drama" />
+            <label class="accountPreferencesInput" for="drama">Drama</label>
+          </div>
+          <div>
+            <input type="checkbox" id="biography" name="biography" />
+            <label class="accountPreferencesInput" for="biography"
+              >Biography</label
+            >
+          </div>
+          <div>
+            <input type="checkbox" id="shortFilms" name="shortFilms" />
+            <label class="accountPreferencesInput" for="shortFilms"
+              >Short Film</label
+            >
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button id="accountPreferencesButton">Submit</button>
+      <button mat-raised-button (click)="showRecommendationModal()" class="settingsModalBackButton">Go Back</button>
+    </div>
+  </div>
+
+  <div style="display: none" id="appearancePopup">
+    <div id="appearanceInnerDiv">
+      <h1 class="settingsHeader">Edit Appearance</h1>
+      <div>
+        <div class="accountPreferencesRows">
+          <div>
+            <label class="accountPreferencesInput" for="username"
+              >Display Username</label
+            >
+            <input type="checkbox" id="username" name="username" />
+          </div>
+          <div>
+            <label class="accountPreferencesInput" for="usernameTextColor"
+              >Username Text Color
             </label>
 
-            <select name="auto-log-out-dropdown" id="auto-log-out">
-              <option value="0">0 days</option>
-              <option value="1">1 days</option>
-              <option value="2">2 days</option>
-              <option value="3">3 days</option>
-              <option value="4">4 days</option>
-              <option value="5">5 days</option>
-              <option value="6">6 days</option>
-              <option value="7">7 days</option>
-              <option value="8">8 days</option>
-              <option value="9">9 days</option>
-              <option value="10">10 days</option>
-              <option value="11">11 days</option>
-              <option value="12">12 days</option>
-              <option value="13">13 days</option>
-              <option value="14">14 days</option>
-              <option value="15">15 days</option>
-              <option value="16">16 days</option>
-              <option value="17">17 days</option>
-              <option value="18">18 days</option>
-              <option value="19">19 days</option>
-              <option value="20">20 days</option>
-              <option value="21">21 days</option>
-              <option value="22">22 days</option>
-              <option value="23">23 days</option>
-              <option value="24">24 days</option>
-              <option value="25">25 days</option>
-              <option value="26">26 days</option>
-              <option value="27">27 days</option>
-              <option value="28">28 days</option>
-              <option value="29">29 days</option>
-              <option value="30">30 days</option>
-              <option value="31">31 days</option>
+            <select name="usernameTextColor" id="usernameTextColor">
+              <option value="">Select:</option>
+              <option value="red">Red</option>
+              <option value="orange">Orange</option>
+              <option value="yellow">Yellow</option>
+              <option value="green">Green</option>
+              <option value="blue">Blue</option>
+              <option value="indigo">Indigo</option>
             </select>
           </div>
         </div>
-        <button id="accountPreferencesButton">Submit</button>
-      </div>
-    </div>
-    <div style="display: none" id="helpPopup">
-      <div id="helpInnerDiv">
-        <h1 class="settingsHeader">Help</h1>
-        <input
-          (click)="showAccountDetailsModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="How to use Movie Generator"
-        />
-        <input
-          (click)="showRecommendationModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="Contact Us"
-        />
-        <input
-          (click)="showAppearanceModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="How to delete account"
-        />
-        <input
-          (click)="showAccountDetailsModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="How to create playlists"
-        />
-        <input
-          (click)="showRecommendationModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="How to share a movie"
-        />
-        <input
-          (click)="showAppearanceModal()"
-          readonly
-          class="settingsPageLink"
-          placeholder="How to link external accounts"
-        />
-        <button id="accountPreferencesButton">Submit</button>
-      </div>
-    </div>
-    <div style="display: none" id="termsAndConditionsPopup">
-      <div id="tAndCInnerDiv">
-        <h1 class="settingsHeader">Terms and Conditions</h1>
-        <div id="tAndCDiv">
-          <p><strong>Welcome to Movie Generator!</strong></p>
+        <div class="accountPreferencesRows">
+          <div>
+            <label class="accountPreferencesInput" for="mystery"
+              >Display User Photo</label
+            >
+            <input type="checkbox" id="mystery" name="mystery" />
+          </div>
 
-          <p>
-            These terms and conditions outline the rules and regulations for the
-            use of TeamWAP's Website, located at www.MovieGenerator.com.
-          </p>
+          <div>
+            <label class="accountPreferencesInput" for="usernameTextColor"
+              >Photo Border Color
+            </label>
 
-          <p>
-            By accessing this website we assume you accept these terms and
-            conditions. Do not continue to use Movie Generator if you do not
-            agree to take all of the terms and conditions stated on this page.
-          </p>
-
-          <p>
-            The following terminology applies to these Terms and Conditions,
-            Privacy Statement and Disclaimer Notice and all Agreements:
-            "Client", "You" and "Your" refers to you, the person log on this
-            website and compliant to the Company’s terms and conditions. "The
-            Company", "Ourselves", "We", "Our" and "Us", refers to our Company.
-            "Party", "Parties", or "Us", refers to both the Client and
-            ourselves. All terms refer to the offer, acceptance and
-            consideration of payment necessary to undertake the process of our
-            assistance to the Client in the most appropriate manner for the
-            express purpose of meeting the Client’s needs in respect of
-            provision of the Company’s stated services, in accordance with and
-            subject to, prevailing law of Netherlands. Any use of the above
-            terminology or other words in the singular, plural, capitalization
-            and/or he/she or they, are taken as interchangeable and therefore as
-            referring to same.
-          </p>
-
-          <h3><strong>Cookies</strong></h3>
-
-          <p>
-            We employ the use of cookies. By accessing Movie Generator, you
-            agreed to use cookies in agreement with the TeamWAP's Privacy
-            Policy.
-          </p>
-
-          <p>
-            Most interactive websites use cookies to let us retrieve the user’s
-            details for each visit. Cookies are used by our website to enable
-            the functionality of certain areas to make it easier for people
-            visiting our website. Some of our affiliate/advertising partners may
-            also use cookies.
-          </p>
-
-          <h3><strong>License</strong></h3>
-
-          <p>
-            Unless otherwise stated, TeamWAP and/or its licensors own the
-            intellectual property rights for all material on Movie Generator.
-            All intellectual property rights are reserved. You may access this
-            from Movie Generator for your own personal use subjected to
-            restrictions set in these terms and conditions.
-          </p>
-
-          <p>You must not:</p>
-          <ul>
-            <li>Republish material from Movie Generator</li>
-            <li>Sell, rent or sub-license material from Movie Generator</li>
-            <li>Reproduce, duplicate or copy material from Movie Generator</li>
-            <li>Redistribute content from Movie Generator</li>
-          </ul>
-
-          <p>
-            This Agreement shall begin on the date hereof. Our Terms and
-            Conditions were created with the help of the
-            <a href="https://www.termsandconditionsgenerator.com"
-              >Terms And Conditions Generator</a
-            >.
-          </p>
-
-          <p>
-            Parts of this website offer an opportunity for users to post and
-            exchange opinions and information in certain areas of the website.
-            TeamWAP does not filter, edit, publish or review Comments prior to
-            their presence on the website. Comments do not reflect the views and
-            opinions of TeamWAP,its agents and/or affiliates. Comments reflect
-            the views and opinions of the person who post their views and
-            opinions. To the extent permitted by applicable laws, TeamWAP shall
-            not be liable for the Comments or for any liability, damages or
-            expenses caused and/or suffered as a result of any use of and/or
-            posting of and/or appearance of the Comments on this website.
-          </p>
-
-          <p>
-            TeamWAP reserves the right to monitor all Comments and to remove any
-            Comments which can be considered inappropriate, offensive or causes
-            breach of these Terms and Conditions.
-          </p>
-
-          <p>You warrant and represent that:</p>
-
-          <ul>
-            <li>
-              You are entitled to post the Comments on our website and have all
-              necessary licenses and consents to do so;
-            </li>
-            <li>
-              The Comments do not invade any intellectual property right,
-              including without limitation copyright, patent or trademark of any
-              third party;
-            </li>
-            <li>
-              The Comments do not contain any defamatory, libelous, offensive,
-              indecent or otherwise unlawful material which is an invasion of
-              privacy
-            </li>
-            <li>
-              The Comments will not be used to solicit or promote business or
-              custom or present commercial activities or unlawful activity.
-            </li>
-          </ul>
-
-          <p>
-            You hereby grant TeamWAP a non-exclusive license to use, reproduce,
-            edit and authorize others to use, reproduce and edit any of your
-            Comments in any and all forms, formats or media.
-          </p>
-
-          <h3><strong>Hyperlinking to our Content</strong></h3>
-
-          <p>
-            The following organizations may link to our Website without prior
-            written approval:
-          </p>
-
-          <ul>
-            <li>Government agencies;</li>
-            <li>Search engines;</li>
-            <li>News organizations;</li>
-            <li>
-              Online directory distributors may link to our Website in the same
-              manner as they hyperlink to the Websites of other listed
-              businesses; and
-            </li>
-            <li>
-              System wide Accredited Businesses except soliciting non-profit
-              organizations, charity shopping malls, and charity fundraising
-              groups which may not hyperlink to our Web site.
-            </li>
-          </ul>
-
-          <p>
-            These organizations may link to our home page, to publications or to
-            other Website information so long as the link: (a) is not in any way
-            deceptive; (b) does not falsely imply sponsorship, endorsement or
-            approval of the linking party and its products and/or services; and
-            (c) fits within the context of the linking party’s site.
-          </p>
-
-          <p>
-            We may consider and approve other link requests from the following
-            types of organizations:
-          </p>
-
-          <ul>
-            <li>
-              commonly-known consumer and/or business information sources;
-            </li>
-            <li>dot.com community sites;</li>
-            <li>associations or other groups representing charities;</li>
-            <li>online directory distributors;</li>
-            <li>internet portals;</li>
-            <li>accounting, law and consulting firms; and</li>
-            <li>educational institutions and trade associations.</li>
-          </ul>
-
-          <p>
-            We will approve link requests from these organizations if we decide
-            that: (a) the link would not make us look unfavorably to ourselves
-            or to our accredited businesses; (b) the organization does not have
-            any negative records with us; (c) the benefit to us from the
-            visibility of the hyperlink compensates the absence of TeamWAP; and
-            (d) the link is in the context of general resource information.
-          </p>
-
-          <p>
-            These organizations may link to our home page so long as the link:
-            (a) is not in any way deceptive; (b) does not falsely imply
-            sponsorship, endorsement or approval of the linking party and its
-            products or services; and (c) fits within the context of the linking
-            party’s site.
-          </p>
-
-          <p>
-            If you are one of the organizations listed in paragraph 2 above and
-            are interested in linking to our website, you must inform us by
-            sending an e-mail to TeamWAP. Please include your name, your
-            organization name, contact information as well as the URL of your
-            site, a list of any URLs from which you intend to link to our
-            Website, and a list of the URLs on our site to which you would like
-            to link. Wait 2-3 weeks for a response.
-          </p>
-
-          <p>Approved organizations may hyperlink to our Website as follows:</p>
-
-          <ul>
-            <li>By use of our corporate name; or</li>
-            <li>By use of the uniform resource locator being linked to; or</li>
-            <li>
-              By use of any other description of our Website being linked to
-              that makes sense within the context and format of content on the
-              linking party’s site.
-            </li>
-          </ul>
-
-          <p>
-            No use of TeamWAP's logo or other artwork will be allowed for
-            linking absent a trademark license agreement.
-          </p>
-
-          <h3><strong>iFrames</strong></h3>
-
-          <p>
-            Without prior approval and written permission, you may not create
-            frames around our Webpages that alter in any way the visual
-            presentation or appearance of our Website.
-          </p>
-
-          <h3><strong>Content Liability</strong></h3>
-
-          <p>
-            We shall not be hold responsible for any content that appears on
-            your Website. You agree to protect and defend us against all claims
-            that is rising on your Website. No link(s) should appear on any
-            Website that may be interpreted as libelous, obscene or criminal, or
-            which infringes, otherwise violates, or advocates the infringement
-            or other violation of, any third party rights.
-          </p>
-
-          <h3><strong>Your Privacy</strong></h3>
-
-          <p>Please read Privacy Policy</p>
-
-          <h3><strong>Reservation of Rights</strong></h3>
-
-          <p>
-            We reserve the right to request that you remove all links or any
-            particular link to our Website. You approve to immediately remove
-            all links to our Website upon request. We also reserve the right to
-            amen these terms and conditions and it’s linking policy at any time.
-            By continuously linking to our Website, you agree to be bound to and
-            follow these linking terms and conditions.
-          </p>
-
-          <h3><strong>Removal of links from our website</strong></h3>
-
-          <p>
-            If you find any link on our Website that is offensive for any
-            reason, you are free to contact and inform us any moment. We will
-            consider requests to remove links but we are not obligated to or so
-            or to respond to you directly.
-          </p>
-
-          <p>
-            We do not ensure that the information on this website is correct, we
-            do not warrant its completeness or accuracy; nor do we promise to
-            ensure that the website remains available or that the material on
-            the website is kept up to date.
-          </p>
-
-          <h3><strong>Disclaimer</strong></h3>
-
-          <p>
-            To the maximum extent permitted by applicable law, we exclude all
-            representations, warranties and conditions relating to our website
-            and the use of this website. Nothing in this disclaimer will:
-          </p>
-
-          <ul>
-            <li>
-              limit or exclude our or your liability for death or personal
-              injury;
-            </li>
-            <li>
-              limit or exclude our or your liability for fraud or fraudulent
-              misrepresentation;
-            </li>
-            <li>
-              limit any of our or your liabilities in any way that is not
-              permitted under applicable law; or
-            </li>
-            <li>
-              exclude any of our or your liabilities that may not be excluded
-              under applicable law.
-            </li>
-          </ul>
-
-          <p>
-            The limitations and prohibitions of liability set in this Section
-            and elsewhere in this disclaimer: (a) are subject to the preceding
-            paragraph; and (b) govern all liabilities arising under the
-            disclaimer, including liabilities arising in contract, in tort and
-            for breach of statutory duty.
-          </p>
-
-          <p>
-            As long as the website and the information and services on the
-            website are provided free of charge, we will not be liable for any
-            loss or damage of any nature.
-          </p>
+            <select name="usernameTextColor" id="usernameTextColor">
+              <option value="">Select:</option>
+              <option value="red">Red</option>
+              <option value="orange">Orange</option>
+              <option value="yellow">Yellow</option>
+              <option value="green">Green</option>
+              <option value="blue">Blue</option>
+              <option value="indigo">Indigo</option>
+            </select>
+          </div>
         </div>
-        <button id="accountPreferencesButton">I Agree</button>
       </div>
+      <button mat-raised-button id="accountPreferencesButton">Submit</button>
+      <button mat-raised-button (click)="showAppearanceModal()" class="settingsModalBackButton">Go Back</button>
     </div>
-    <div style="display: none" id="feedbackPopup">
-      <div id="feedbackInnerDiv">
-        <h1 class="settingsHeader">Feedback</h1>
+  </div>
+  <div style="display: none" id="historyPopup">
+    <div id="historyInnerDiv">
+      <h1 class="settingsHeader">Edit History</h1>
+      <div>
+        <a class="accountPreferencesInput">Clear search data </a>
+        <div>
+          <label class="accountPreferencesInput" for="auto-log-out"
+            >Delete history after how many days
+          </label>
 
-        <label for="feedbackTextArea"><h4>Please leave your feedback below</h4></label>
+          <select name="auto-log-out-dropdown" id="auto-log-out">
+            <option value="0">0 days</option>
+            <option value="1">1 days</option>
+            <option value="2">2 days</option>
+            <option value="3">3 days</option>
+            <option value="4">4 days</option>
+            <option value="5">5 days</option>
+            <option value="6">6 days</option>
+            <option value="7">7 days</option>
+            <option value="8">8 days</option>
+            <option value="9">9 days</option>
+            <option value="10">10 days</option>
+            <option value="11">11 days</option>
+            <option value="12">12 days</option>
+            <option value="13">13 days</option>
+            <option value="14">14 days</option>
+            <option value="15">15 days</option>
+            <option value="16">16 days</option>
+            <option value="17">17 days</option>
+            <option value="18">18 days</option>
+            <option value="19">19 days</option>
+            <option value="20">20 days</option>
+            <option value="21">21 days</option>
+            <option value="22">22 days</option>
+            <option value="23">23 days</option>
+            <option value="24">24 days</option>
+            <option value="25">25 days</option>
+            <option value="26">26 days</option>
+            <option value="27">27 days</option>
+            <option value="28">28 days</option>
+            <option value="29">29 days</option>
+            <option value="30">30 days</option>
+            <option value="31">31 days</option>
+          </select>
+        </div>
+      </div>
+      <button mat-raised-button id="accountPreferencesButton">Submit</button>
+      <button mat-raised-button (click)="showHistoryModal()" class="settingsModalBackButton">Go Back</button>
+    </div>
+  </div>
+  <div style="display: none" id="securityPopup">
+    <div id="securityInnerDiv">
+      <h1 class="settingsHeader">Edit Security</h1>
+      <div>
+        <div>
+          <label class="accountPreferencesInput" for="Two-factor"
+            >Require a code upon logging in
+          </label>
+          <input type="checkbox" id="Two-factor" name="Two-factor" />
+        </div>
+        <div>
+          <label class="accountPreferencesInput" for="Sell-data"
+            >Don't sell my data</label
+          >
+          <input type="checkbox" id="Sell-data" name="Sell-data" />
+        </div>
+        <div>
+          <label class="accountPreferencesInput" for="auto-log-out"
+            >Auto-log out after how many days
+          </label>
 
-        <textarea id="feedbackTextArea" name="feedbackTextArea" rows="10" cols="45">
+          <select name="auto-log-out-dropdown" id="auto-log-out">
+            <option value="0">0 days</option>
+            <option value="1">1 days</option>
+            <option value="2">2 days</option>
+            <option value="3">3 days</option>
+            <option value="4">4 days</option>
+            <option value="5">5 days</option>
+            <option value="6">6 days</option>
+            <option value="7">7 days</option>
+            <option value="8">8 days</option>
+            <option value="9">9 days</option>
+            <option value="10">10 days</option>
+            <option value="11">11 days</option>
+            <option value="12">12 days</option>
+            <option value="13">13 days</option>
+            <option value="14">14 days</option>
+            <option value="15">15 days</option>
+            <option value="16">16 days</option>
+            <option value="17">17 days</option>
+            <option value="18">18 days</option>
+            <option value="19">19 days</option>
+            <option value="20">20 days</option>
+            <option value="21">21 days</option>
+            <option value="22">22 days</option>
+            <option value="23">23 days</option>
+            <option value="24">24 days</option>
+            <option value="25">25 days</option>
+            <option value="26">26 days</option>
+            <option value="27">27 days</option>
+            <option value="28">28 days</option>
+            <option value="29">29 days</option>
+            <option value="30">30 days</option>
+            <option value="31">31 days</option>
+          </select>
+        </div>
+      </div>
+      <button mat-raised-button id="accountPreferencesButton">Submit</button>
+      <button mat-raised-button (click)="showSecurityModal()" class="settingsModalBackButton">Go Back</button>
+    </div>
+  </div>
+  <div style="display: none" id="helpPopup">
+    <div id="helpInnerDiv">
+      <h1 class="settingsHeader">Help</h1>
+      <input
+        (click)="showAccountDetailsModal()"
+        readonly
+        class="settingsPageLink"
+        placeholder="How to use Movie Generator"
+      />
+      <input
+        (click)="showRecommendationModal()"
+        readonly
+        class="settingsPageLink"
+        placeholder="Contact Us"
+      />
+      <input
+        (click)="showAppearanceModal()"
+        readonly
+        class="settingsPageLink"
+        placeholder="How to delete account"
+      />
+      <input
+        (click)="showAccountDetailsModal()"
+        readonly
+        class="settingsPageLink"
+        placeholder="How to create playlists"
+      />
+      <input
+        (click)="showRecommendationModal()"
+        readonly
+        class="settingsPageLink"
+        placeholder="How to share a movie"
+      />
+      <input
+        (click)="showAppearanceModal()"
+        readonly
+        class="settingsPageLink"
+        placeholder="How to link external accounts"
+      />
+      <button mat-raised-button id="accountPreferencesButton">Submit</button>
+      <button mat-raised-button (click)="showHelpModal()" class="settingsModalBackButton">Go Back</button>
+    </div>
+  </div>
+  <div style="display: none" id="termsAndConditionsPopup">
+    <div id="tAndCInnerDiv">
+      <h1 class="settingsHeader">Terms and Conditions</h1>
+      <div id="tAndCDiv">
+        <p><strong>Welcome to Movie Generator!</strong></p>
+
+        <p>
+          These terms and conditions outline the rules and regulations for the
+          use of TeamWAP's Website, located at www.MovieGenerator.com.
+        </p>
+
+        <p>
+          By accessing this website we assume you accept these terms and
+          conditions. Do not continue to use Movie Generator if you do not
+          agree to take all of the terms and conditions stated on this page.
+        </p>
+
+        <p>
+          The following terminology applies to these Terms and Conditions,
+          Privacy Statement and Disclaimer Notice and all Agreements:
+          "Client", "You" and "Your" refers to you, the person log on this
+          website and compliant to the Company’s terms and conditions. "The
+          Company", "Ourselves", "We", "Our" and "Us", refers to our Company.
+          "Party", "Parties", or "Us", refers to both the Client and
+          ourselves. All terms refer to the offer, acceptance and
+          consideration of payment necessary to undertake the process of our
+          assistance to the Client in the most appropriate manner for the
+          express purpose of meeting the Client’s needs in respect of
+          provision of the Company’s stated services, in accordance with and
+          subject to, prevailing law of Netherlands. Any use of the above
+          terminology or other words in the singular, plural, capitalization
+          and/or he/she or they, are taken as interchangeable and therefore as
+          referring to same.
+        </p>
+
+        <h3><strong>Cookies</strong></h3>
+
+        <p>
+          We employ the use of cookies. By accessing Movie Generator, you
+          agreed to use cookies in agreement with the TeamWAP's Privacy
+          Policy.
+        </p>
+
+        <p>
+          Most interactive websites use cookies to let us retrieve the user’s
+          details for each visit. Cookies are used by our website to enable
+          the functionality of certain areas to make it easier for people
+          visiting our website. Some of our affiliate/advertising partners may
+          also use cookies.
+        </p>
+
+        <h3><strong>License</strong></h3>
+
+        <p>
+          Unless otherwise stated, TeamWAP and/or its licensors own the
+          intellectual property rights for all material on Movie Generator.
+          All intellectual property rights are reserved. You may access this
+          from Movie Generator for your own personal use subjected to
+          restrictions set in these terms and conditions.
+        </p>
+
+        <p>You must not:</p>
+        <ul>
+          <li>Republish material from Movie Generator</li>
+          <li>Sell, rent or sub-license material from Movie Generator</li>
+          <li>Reproduce, duplicate or copy material from Movie Generator</li>
+          <li>Redistribute content from Movie Generator</li>
+        </ul>
+
+        <p>
+          This Agreement shall begin on the date hereof. Our Terms and
+          Conditions were created with the help of the
+          <a href="https://www.termsandconditionsgenerator.com"
+            >Terms And Conditions Generator</a
+          >.
+        </p>
+
+        <p>
+          Parts of this website offer an opportunity for users to post and
+          exchange opinions and information in certain areas of the website.
+          TeamWAP does not filter, edit, publish or review Comments prior to
+          their presence on the website. Comments do not reflect the views and
+          opinions of TeamWAP,its agents and/or affiliates. Comments reflect
+          the views and opinions of the person who post their views and
+          opinions. To the extent permitted by applicable laws, TeamWAP shall
+          not be liable for the Comments or for any liability, damages or
+          expenses caused and/or suffered as a result of any use of and/or
+          posting of and/or appearance of the Comments on this website.
+        </p>
+
+        <p>
+          TeamWAP reserves the right to monitor all Comments and to remove any
+          Comments which can be considered inappropriate, offensive or causes
+          breach of these Terms and Conditions.
+        </p>
+
+        <p>You warrant and represent that:</p>
+
+        <ul>
+          <li>
+            You are entitled to post the Comments on our website and have all
+            necessary licenses and consents to do so;
+          </li>
+          <li>
+            The Comments do not invade any intellectual property right,
+            including without limitation copyright, patent or trademark of any
+            third party;
+          </li>
+          <li>
+            The Comments do not contain any defamatory, libelous, offensive,
+            indecent or otherwise unlawful material which is an invasion of
+            privacy
+          </li>
+          <li>
+            The Comments will not be used to solicit or promote business or
+            custom or present commercial activities or unlawful activity.
+          </li>
+        </ul>
+
+        <p>
+          You hereby grant TeamWAP a non-exclusive license to use, reproduce,
+          edit and authorize others to use, reproduce and edit any of your
+          Comments in any and all forms, formats or media.
+        </p>
+
+        <h3><strong>Hyperlinking to our Content</strong></h3>
+
+        <p>
+          The following organizations may link to our Website without prior
+          written approval:
+        </p>
+
+        <ul>
+          <li>Government agencies;</li>
+          <li>Search engines;</li>
+          <li>News organizations;</li>
+          <li>
+            Online directory distributors may link to our Website in the same
+            manner as they hyperlink to the Websites of other listed
+            businesses; and
+          </li>
+          <li>
+            System wide Accredited Businesses except soliciting non-profit
+            organizations, charity shopping malls, and charity fundraising
+            groups which may not hyperlink to our Web site.
+          </li>
+        </ul>
+
+        <p>
+          These organizations may link to our home page, to publications or to
+          other Website information so long as the link: (a) is not in any way
+          deceptive; (b) does not falsely imply sponsorship, endorsement or
+          approval of the linking party and its products and/or services; and
+          (c) fits within the context of the linking party’s site.
+        </p>
+
+        <p>
+          We may consider and approve other link requests from the following
+          types of organizations:
+        </p>
+
+        <ul>
+          <li>
+            commonly-known consumer and/or business information sources;
+          </li>
+          <li>dot.com community sites;</li>
+          <li>associations or other groups representing charities;</li>
+          <li>online directory distributors;</li>
+          <li>internet portals;</li>
+          <li>accounting, law and consulting firms; and</li>
+          <li>educational institutions and trade associations.</li>
+        </ul>
+
+        <p>
+          We will approve link requests from these organizations if we decide
+          that: (a) the link would not make us look unfavorably to ourselves
+          or to our accredited businesses; (b) the organization does not have
+          any negative records with us; (c) the benefit to us from the
+          visibility of the hyperlink compensates the absence of TeamWAP; and
+          (d) the link is in the context of general resource information.
+        </p>
+
+        <p>
+          These organizations may link to our home page so long as the link:
+          (a) is not in any way deceptive; (b) does not falsely imply
+          sponsorship, endorsement or approval of the linking party and its
+          products or services; and (c) fits within the context of the linking
+          party’s site.
+        </p>
+
+        <p>
+          If you are one of the organizations listed in paragraph 2 above and
+          are interested in linking to our website, you must inform us by
+          sending an e-mail to TeamWAP. Please include your name, your
+          organization name, contact information as well as the URL of your
+          site, a list of any URLs from which you intend to link to our
+          Website, and a list of the URLs on our site to which you would like
+          to link. Wait 2-3 weeks for a response.
+        </p>
+
+        <p>Approved organizations may hyperlink to our Website as follows:</p>
+
+        <ul>
+          <li>By use of our corporate name; or</li>
+          <li>By use of the uniform resource locator being linked to; or</li>
+          <li>
+            By use of any other description of our Website being linked to
+            that makes sense within the context and format of content on the
+            linking party’s site.
+          </li>
+        </ul>
+
+        <p>
+          No use of TeamWAP's logo or other artwork will be allowed for
+          linking absent a trademark license agreement.
+        </p>
+
+        <h3><strong>iFrames</strong></h3>
+
+        <p>
+          Without prior approval and written permission, you may not create
+          frames around our Webpages that alter in any way the visual
+          presentation or appearance of our Website.
+        </p>
+
+        <h3><strong>Content Liability</strong></h3>
+
+        <p>
+          We shall not be hold responsible for any content that appears on
+          your Website. You agree to protect and defend us against all claims
+          that is rising on your Website. No link(s) should appear on any
+          Website that may be interpreted as libelous, obscene or criminal, or
+          which infringes, otherwise violates, or advocates the infringement
+          or other violation of, any third party rights.
+        </p>
+
+        <h3><strong>Your Privacy</strong></h3>
+
+        <p>Please read Privacy Policy</p>
+
+        <h3><strong>Reservation of Rights</strong></h3>
+
+        <p>
+          We reserve the right to request that you remove all links or any
+          particular link to our Website. You approve to immediately remove
+          all links to our Website upon request. We also reserve the right to
+          amen these terms and conditions and it’s linking policy at any time.
+          By continuously linking to our Website, you agree to be bound to and
+          follow these linking terms and conditions.
+        </p>
+
+        <h3><strong>Removal of links from our website</strong></h3>
+
+        <p>
+          If you find any link on our Website that is offensive for any
+          reason, you are free to contact and inform us any moment. We will
+          consider requests to remove links but we are not obligated to or so
+          or to respond to you directly.
+        </p>
+
+        <p>
+          We do not ensure that the information on this website is correct, we
+          do not warrant its completeness or accuracy; nor do we promise to
+          ensure that the website remains available or that the material on
+          the website is kept up to date.
+        </p>
+
+        <h3><strong>Disclaimer</strong></h3>
+
+        <p>
+          To the maximum extent permitted by applicable law, we exclude all
+          representations, warranties and conditions relating to our website
+          and the use of this website. Nothing in this disclaimer will:
+        </p>
+
+        <ul>
+          <li>
+            limit or exclude our or your liability for death or personal
+            injury;
+          </li>
+          <li>
+            limit or exclude our or your liability for fraud or fraudulent
+            misrepresentation;
+          </li>
+          <li>
+            limit any of our or your liabilities in any way that is not
+            permitted under applicable law; or
+          </li>
+          <li>
+            exclude any of our or your liabilities that may not be excluded
+            under applicable law.
+          </li>
+        </ul>
+
+        <p>
+          The limitations and prohibitions of liability set in this Section
+          and elsewhere in this disclaimer: (a) are subject to the preceding
+          paragraph; and (b) govern all liabilities arising under the
+          disclaimer, including liabilities arising in contract, in tort and
+          for breach of statutory duty.
+        </p>
+
+        <p>
+          As long as the website and the information and services on the
+          website are provided free of charge, we will not be liable for any
+          loss or damage of any nature.
+        </p>
+      </div>
+      <button mat-raised-button (click)="showTAndCModal()" id="accountPreferencesButton">I Agree</button>
+    </div>
+  </div>
+  <div style="display: none" id="feedbackPopup">
+    <div id="feedbackInnerDiv">
+      <h1 class="settingsHeader">Feedback</h1>
+
+      <label for="feedbackTextArea"><h4>Please leave your feedback below</h4></label>
+
+      <textarea id="feedbackTextArea" name="feedbackTextArea" rows="10" cols="45">
 Looking forward to your response.
 </textarea
-        >
-        <button id="accountPreferencesButton">Submit Feedback</button>
-      </div>
+      >
+      <button mat-raised-button id="accountPreferencesButton">Submit Feedback</button>
+      <button mat-raised-button (click)="showFeedbackModal()" class="settingsModalBackButton">Go Back</button>
     </div>
-    <div style="display: none" id="signoutPopup">
-      <div id="signOutInnerDiv">
-        <h1 class="settingsHeader">Sign Out</h1>
-      </div>
+  </div>
+  <div style="display: none" id="signoutPopup">
+    <div id="signOutInnerDiv">
+      <h1  class="settingsHeader">Sign Out</h1>
     </div>
   </div>
 </div>

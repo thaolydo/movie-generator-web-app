@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CognitoUser } from 'amazon-cognito-identity-js';
+import { UserInfo } from 'src/app/interfaces/user-info.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -8,9 +12,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private snackBar: MatSnackBar,
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
   }
 
 }

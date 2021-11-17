@@ -1,38 +1,28 @@
-<div id="shareMoviePageBackground">
-  <div id="landingPageNavBar">
-    <span id="landingPageLogo"
-      ><p>Movie</p>
-      Generator</span
-    >
-  </div>
-  
-  <div id="shareMoviePageModal">
-    <div id="shareMoviePageInnerDiv">
-      <h1 id="shareMoviePageHeader">Share Movie</h1>
-      <div id="shareMoviePageInputDiv">
-        <p id="shareMoviePageParagraph">Who would you like to share this with?</p>
-        <input [(ngModel)]="receiverName" class="shareMovieInput" placeholder="Name" />
-        <input [(ngModel)]="receiverEmail" class="shareMovieInput" placeholder="Email" />
-        <button (click)="showShareMovieSentModal()" class="shareMovieButton">Send</button>
-        <button id="shareMovieBackButton" class="shareMovieButton">Go Back</button>
-      </div>
+<div id="shareMoviePageModal">
+  <div id="shareMoviePageInnerDiv">
+    <h1 id="shareMoviePageHeader">Share Movie</h1>
+    <div id="shareMoviePageInputDiv">
+      <p id="shareMoviePageParagraph">Who would you like to share this with?</p>
+      <input [(ngModel)]="receiverName" class="shareMovieInput" placeholder="Name" />
+      <input [(ngModel)]="receiverEmail" class="shareMovieInput" placeholder="Email" />
+      <button mat-raised-button (click)="showShareMovieSentModal()" class="shareMovieButton">Send</button>
+      <button mat-raised-button id="shareMovieBackButton" class="shareMovieButton">Go Back</button>
     </div>
-    
   </div>
 
-  <div style="display: none;" id="shareMovieSentOuterModal">
-    <div id="shareMovieSentModal">
-      <div id="shareMovieSentInnerDiv">
-        <h1 id
-        ="shareMovieSentHeader">Sent</h1>
-        <div id="shareMovieSentDiv">
-          <p style="text-align: center;">
-            If a user with this email exists they will be able to view this
-            recommendation. Otherwise, they will be prompted to sign up.
-          </p>
-        </div>
-        <button (click)="showShareMovieSentModal()" id="shareMovieSentButton">Close</button>
+</div>
+
+<div style="display: none;" id="shareMovieSentOuterModal">
+  <div id="shareMovieSentModal">
+    <div id="shareMovieSentInnerDiv">
+      <h1 id="shareMovieSentHeader">Sent</h1>
+      <div id="shareMovieSentDiv">
+        <p style="text-align: center;">
+          If a user with this email exists they will be able to view this
+          recommendation. Otherwise, they will be prompted to sign up.
+        </p>
       </div>
+      <button (click)="showShareMovieSentModal()" id="shareMovieSentButton">Close</button>
     </div>
   </div>
 </div>

@@ -17,3 +17,24 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-root {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: #ebf606;
+    background: -webkit-linear-gradient(top right, #ebf606, #fa1894);
+    background: -moz-linear-gradient(top right, #ebf606, #fa1894);
+    background: linear-gradient(to bottom left, #ebf606, #fa1894);
+    display: flex;
+    flex-direction: column;
+}
+
+.router-page {
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

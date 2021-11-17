@@ -2,18 +2,6 @@ $mainFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $buttonBackground: rgb(147, 112, 219);
 $buttonBorderColor: rgb(138, 43, 226);
 
-#settingsPageBackground {
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
-  background: #ebf606;
-  background: -webkit-linear-gradient(top right, #ebf606, #fa1894);
-  background: -moz-linear-gradient(top right, #ebf606, #fa1894);
-  background: linear-gradient(to bottom left, #ebf606, #fa1894);
-  display: flex;
-  flex-direction: column;
-}
-
 #settingsPageModal {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 5px;
@@ -69,7 +57,7 @@ $buttonBorderColor: rgb(138, 43, 226);
   display: flex;
   justify-content: space-between;
   padding: 2% 5% 2% 5%;
-  margin-bottom: 5%;
+  margin-bottom: 1%;
   align-items: center;
 }
 
@@ -83,30 +71,13 @@ $buttonBorderColor: rgb(138, 43, 226);
   text-align: center;
 }
 
-#settingsPageLogo {
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic,
-    "AppleGothic", sans-serif;
-  font-size: 22px;
-  padding: 10px 50px;
-  text-align: left;
-  text-transform: uppercase;
-  text-rendering: optimizeLegibility;
-
-  color: #131313;
-
-  letter-spacing: 0.25em;
-  text-shadow: 1px -1px 0 #767676, -1px 2px 1px #737272, -2px 4px 1px #767474,
-    -3px 6px 1px #787777, -4px 8px 1px #7b7a7a, -5px 10px 1px #7f7d7d,
-    -6px 12px 1px #828181, -7px 14px 1px #868585, -8px 16px 1px #8b8a89;
-}
-
 .settingsPageLink {
   color: white;
   background-color: #333;
   border-radius: 5px;
   border: none;
   width: 25vw;
-  height: 2vh;
+  height: 3em;
   padding: 8px 20px 8px 20px;
   margin-bottom: 1vh;
 }
@@ -155,7 +126,7 @@ $buttonBorderColor: rgb(138, 43, 226);
 #accountPreferencesOuterColumnContainer {
   display: flex;
   justify-content: space-between;
-  
+
 }
 
 #accountPreferencesHeader {
@@ -185,6 +156,20 @@ $buttonBorderColor: rgb(138, 43, 226);
   margin-top: 2vh;
 }
 
+.settingsModalBackButton {
+  color: white;
+  width: 100%;
+  height: 6vh;
+  border-radius: 5px;
+  border: none;
+  background: #27695A;
+background: -webkit-linear-gradient(top left, #27695A, #1C278C);
+background: -moz-linear-gradient(top left, #27695A, #1C278C);
+background: linear-gradient(to bottom right, #27695A, #1C278C);
+  padding: 8px 0px 8px 0px;
+  margin-top: 2vh;
+}
+
 #accountDetailsPopup {
   display: flex;
   flex-direction: column;
@@ -206,19 +191,19 @@ $buttonBorderColor: rgb(138, 43, 226);
 
 #tAndCDiv {
   height: 25vh;
- 
+
   overflow-y: scroll;
   color: #888;
   padding-left: 1vw;
   padding-right: 1vw;
-  
-  
+
+
 
   &::-webkit-scrollbar {
 		width: 4px;
 		background-color: #e7e6e6;
 		border-radius: 5px;
-    
+
 	}
 
 	&::-webkit-scrollbar-thumb {
@@ -226,7 +211,7 @@ $buttonBorderColor: rgb(138, 43, 226);
 		border-radius: 5px;
 		height: 55px;
 		width: 4px;
-    
+
 	}
 }
 
