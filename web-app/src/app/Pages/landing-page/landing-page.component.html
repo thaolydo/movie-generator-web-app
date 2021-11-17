@@ -1,7 +1,31 @@
 <div id="landingPageBackground">
   <div id="landingPageNavBar">
     <span id="landingPageLogo"><p>Movie</p> Generator</span>
-    <button id="landingPageSignIn">Sign In</button>
+
+    <!-- Account or Signin -->
+    <span>
+      <button mat-icon-button *ngIf="curUser" [matMenuTriggerFor]="menu">
+        <mat-icon>person</mat-icon>
+      </button>
+      {{userInfo?.firstName}} {{userInfo?.lastName}}
+    </span>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/settings-page">
+        <span>
+          <mat-icon>settings</mat-icon>
+          Settings
+        </span>
+      </button>
+      <button mat-menu-item (click)="onLogout()">
+        <span>
+          <mat-icon>logout</mat-icon>
+          Logout
+        </span>
+      </button>
+    </mat-menu>
+
+    <!-- Sign in -->
+    <button mat-raised-button *ngIf="!curUser" id="landingPageSignIn" routerLink="/login-page">Sign In</button>
   </div>
   <div id="landingPageMainContent">
     <span><p class="landingPageMainHeader">Let Movie Generator choose </p><p class="landingPageMainHeader">the best movie for you.</p></span>

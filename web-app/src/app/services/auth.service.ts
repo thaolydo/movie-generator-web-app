@@ -79,6 +79,21 @@ export class AuthService {
     });
   }
 
+  signOut() {
+    return new Promise(async (resolve, reject) => {
+      const curUser = await this.getCurUser();
+      if (!curUser) {
+        reject('User is not signed in');
+        return;
+      }
+
+      curUser.signOut(() => {
+        console.log('Sign out successfully');
+        resolve('success');
+      });
+    });
+  }
+
   sendResetPasswordCode(email: string): Promise<CognitoUser> {
     console.log(`Sending code for email '${email}'`);
     const user = new CognitoUser({

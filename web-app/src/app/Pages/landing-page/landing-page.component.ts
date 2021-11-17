@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CognitoUser } from 'amazon-cognito-identity-js';
+import { UserInfo } from 'src/app/interfaces/user-info.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -8,9 +12,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  curUser: CognitoUser | null | undefined = null;
+  userInfo: UserInfo | null | undefined = null;
 
-  ngOnInit(): void {
+  constructor(
+    private authService: AuthService,
+    private snackBar: MatSnackBar,
+  ) { }
+
+  async ngOnInit() {
+    try {
+      this.curUser = await this.authService.getCurUser();
+      this.userInfo = await this.authService.getUserAttributes();
+    } catch (err) {
+      console.log('User not logged in');
+    }
+  }
+
+  async onLogout() {
+    const response = await this.authService.signOut();
+    console.log(response);
+    this.curUser = null;
+    this.userInfo = null;
+    this.snackBar.open('Successfully logged out', 'close', { duration: 3000 });
   }
 
 }
