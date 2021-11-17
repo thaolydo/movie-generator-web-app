@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPool, CognitoUserSession, ICognitoUserAttributeData, ICognitoUserData, ISignUpResult } from 'amazon-cognito-identity-js';
 import { environment } from 'src/environments/environment';
 import { UserInfo } from '../interfaces/user-info.model';
-import { Auth } from 'aws-amplify';
 
 /*
   Follow tutorial here: https://www.npmjs.com/package/amazon-cognito-identity-js
