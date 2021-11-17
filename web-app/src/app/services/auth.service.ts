@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AuthenticationDetails, CognitoUser, CognitoUserAttribute, CognitoUserPool, CognitoUserSession, ICognitoUserAttributeData, ICognitoUserData, ISignUpResult } from 'amazon-cognito-identity-js';
+import { Observable, Subject, Subscriber } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { UserInfo } from '../interfaces/user-info.model';
 
@@ -12,7 +13,7 @@ import { UserInfo } from '../interfaces/user-info.model';
 export class AuthService {
 
   private userPool: CognitoUserPool;
-  // private curUser: CognitoUser | null | undefined;
+  private eventSubject: Subject<string> = new Subject();
 
   constructor() {
     this.userPool = new CognitoUserPool({
@@ -24,22 +25,40 @@ export class AuthService {
     // Auth.currentUserPoolUser
   }
 
-  signUp(email: string, password: string): Promise<ISignUpResult> {
+  signUp(email: string, password: string, userInfo: UserInfo): Promise<ISignUpResult> {
     console.log(`Signing up user with email '${email}' and password '${password}'`);
+    const attributes: CognitoUserAttribute[] = [new CognitoUserAttribute({
+      Name: 'email',
+      Value: email
+    })];
+    if (userInfo.firstName) {
+      attributes.push(new CognitoUserAttribute({
+        Name: 'custom:firstName',
+        Value: userInfo.firstName
+      }));
+    }
+    if (userInfo.lastName) {
+      attributes.push(new CognitoUserAttribute({
+        Name: 'custom:lastName',
+        Value: userInfo.lastName
+      }));
+    }
+    if (userInfo.phoneNumber) {
+      attributes.push(new CognitoUserAttribute({
+        Name: 'custom:phoneNumber',
+        Value: userInfo.phoneNumber
+      }));
+    }
+
     return new Promise((resolve, reject) => {
-      this.userPool.signUp(email, password, [
-        new CognitoUserAttribute({
-          Name: 'email',
-          Value: email
-        }),
-      ], [], (err, data) => {
+      this.userPool.signUp(email, password, attributes, [], (err, data) => {
         if (err) {
           console.error(err);
           reject(err);
           return;
         }
         console.log(`Successfully signed up user with email '${email}'`);
-        // this.curUser = data?.user;
+        this.eventSubject.next('sign-up');
         if (data) {
           resolve(data);
         }
@@ -60,8 +79,7 @@ export class AuthService {
       }), {
         onSuccess: (session) => {
           console.log(`Successfull signed in with email '${email}'`);
-          // console.log('session =', session);
-          // this.curUser = user;
+          this.eventSubject.next('sign-up');
           resolve(user);
         },
         onFailure: (err) => {
@@ -164,7 +182,7 @@ export class AuthService {
   getUserAttributes(): Promise<UserInfo> {
     return new Promise(async (resolve, reject) => {
       const curUser = await this.getCurUser();
-        curUser?.getUserAttributes((err, data) => {
+      curUser?.getUserAttributes((err, data) => {
         if (err) {
           // console.error(err);
           reject(err);
@@ -188,6 +206,7 @@ export class AuthService {
 
   getCurUser(): Promise<CognitoUser> {
     const curUser = this.userPool.getCurrentUser();
+    const o: Observable<string> = new Observable()
     return new Promise((resolve, reject) => {
       if (!curUser) {
         reject('User not logged in');
@@ -207,4 +226,9 @@ export class AuthService {
       });
     });
   }
+
+  getEventUpdates(): Subject<string> {
+    return this.eventSubject;
+  }
+
 }

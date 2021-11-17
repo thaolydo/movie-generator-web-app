@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { UserInfo } from 'src/app/interfaces/user-info.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,11 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class SignupPageComponent implements OnInit {
 
-  signupFirstName: string = '';
-  signupLastName: string = '';
-  signupEmail: string = '';
-  signupPassword: string = '';
-  signupConfirm: string = '';
+  firstName: string = '';
+  lastName: string = '';
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
 
   constructor(
     private authService: AuthService,
@@ -26,13 +27,17 @@ export class SignupPageComponent implements OnInit {
   }
 
   async onSignUp() {
-    if (this.signupPassword != this.signupConfirm) {
+    if (this.password != this.confirmPassword) {
       this.snackBar.open('Password confirmation does not match. Please try again.', 'close', { duration: 5000 });
       return;
     }
 
-    await this.authService.signUp(this.signupEmail, this.signupPassword);
-    this.snackBar.open('Successfully logged in', 'close', { duration: 3000 });
+    const userInfo: UserInfo = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+    };
+    await this.authService.signUp(this.email, this.password, userInfo);
+    this.snackBar.open('Successfully signing up. Please check your email to verify the account.', 'close', { duration: 10000 });
     this.router.navigate(['/landing-page']);
   }
 

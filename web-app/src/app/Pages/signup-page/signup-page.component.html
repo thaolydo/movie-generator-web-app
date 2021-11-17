@@ -2,11 +2,11 @@
   <div id="signupPageInnerDiv">
     <h1 id="signupPageHeader">Sign Up</h1>
     <div id="signupPageInputDiv">
-      <input [(ngModel)]="signupFirstName" placeholder="First Name" class="signupPageInput" type="text" />
-      <input [(ngModel)]="signupLastName" placeholder="Last Name" class="signupPageInput" type="text" />
-      <input [(ngModel)]="signupEmail" placeholder="Email Address" class="signupPageInput" type="email" />
-      <input [(ngModel)]="signupPassword" placeholder="Password" class="signupPageInput" type="password" />
-      <input [(ngModel)]="signupConfirm" placeholder="Confirm Password" class="signupPageInput" type="password" />
+      <input [(ngModel)]="firstName" placeholder="First Name" class="signupPageInput" type="text" />
+      <input [(ngModel)]="lastName" placeholder="Last Name" class="signupPageInput" type="text" />
+      <input [(ngModel)]="email" placeholder="Email Address" class="signupPageInput" type="email" />
+      <input [(ngModel)]="password" placeholder="Password" class="signupPageInput" type="password" />
+      <input [(ngModel)]="confirmPassword" placeholder="Confirm Password" class="signupPageInput" type="password" />
     </div>
     <button mat-raised-button id="signupPageButton" (click)="onSignUp()">Sign Up</button>
   </div>

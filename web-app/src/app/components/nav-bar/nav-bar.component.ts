@@ -26,6 +26,13 @@ export class NavBarComponent implements OnInit {
     } catch (err) {
       console.log('User not logged in');
     }
+
+    this.authService.getEventUpdates().subscribe(async event => {
+      if (event) {
+        this.curUser = await this.authService.getCurUser();
+        this.userInfo = await this.authService.getUserAttributes();
+      }
+    });
   }
 
   async onLogout() {
