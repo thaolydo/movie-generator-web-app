@@ -9,21 +9,48 @@ import { ActorAPIService } from 'src/app/services/actor-api.service';
 export class MainPageComponent implements OnInit {
 
   searchBarText: string = ""
+  popularMoviePosters: string[] = []
+  comingSoonPosters: string[] = []
 
   constructor(private actorAPIService: ActorAPIService) { }
 
-  ngOnInit(): void {
-    // API call to get list of popular movies which will return a string 
-    // array of titles in the form of /title/tt9032400/
+  async ngOnInit(): Promise<void> {
 
+    var popularTitles : string[] = []
+    var comingSoonTitles : string[] = []
     var popularTitles = ["/title/tt9032400/", "/title/tt1160419/", "/title/tt13024674/", "/title/tt10696784/", "/title/tt9639470/", 
                         "/title/tt2382320/", "/title/tt3420504/", "/title/tt8847712/", "/title/tt10665338/", "/title/tt5108870/"]
-
+    var comingSoonTitles = ["/title/tt9032400/", "/title/tt1160419/", "/title/tt13024674/", "/title/tt10696784/", "/title/tt9639470/", 
+                        "/title/tt2382320/", "/title/tt3420504/", "/title/tt8847712/", "/title/tt10665338/", "/title/tt5108870/"]
+                        
+    // this.actorAPIService.getPopularMovieIDs().subscribe(movieIDs => {
+    //   popularTitles = movieIDs
+    //   console.log(popularTitles)
+    // })
+    // this.actorAPIService.getComingSoonMovieIDs().subscribe(movieIDs => {
+    //   comingSoonTitles = movieIDs
+    //   console.log(popularTitles)
+    // })
+    await this.delay(1000);
     for (var title in popularTitles) {
       var movieID = this.parseTitle(popularTitles[title])
-      this.actorAPIService.getMovieInfo(movieID).subscribe(movie => {
-        console.log(movie.results.title)
-        console.log(movie.results.banner)
+      this.actorAPIService.getMovieInfo(movieID).subscribe((movie) => {
+        if (movie.results.banner != null && movie.results.banner.includes('https')) { 
+          console.log(movie.results.title)
+          console.log(movie.results.banner)
+          this.popularMoviePosters.push(movie.results.banner) 
+        }
+      })
+    }
+
+    for (var title in comingSoonTitles) {
+      var movieID = this.parseTitle(popularTitles[title])
+      this.actorAPIService.getMovieInfo(movieID).subscribe((movie) => {
+        if (movie.results.banner != null && movie.results.banner.includes('https')) { 
+          console.log(movie.results.title)
+          console.log(movie.results.banner)
+          this.comingSoonPosters.push(movie.results.banner) 
+        }
       })
     }
   
@@ -33,6 +60,10 @@ export class MainPageComponent implements OnInit {
     movieTitle = movieTitle.replace("/title", "");
     console.log(movieTitle)
     return movieTitle;
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
 }

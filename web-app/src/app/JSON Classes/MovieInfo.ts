@@ -3,6 +3,7 @@ export interface MovieInfo {
 }
 
 export interface Movie {
+    imdb_id: string,
     title: string
     description: string
     trailer: string
