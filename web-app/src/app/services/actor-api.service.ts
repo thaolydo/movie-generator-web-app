@@ -15,8 +15,6 @@ export class ActorAPIService {
 
   actorAPIURL = 'https://data-imdb1.p.rapidapi.com/actor'
   movieAPIURL = 'https://data-imdb1.p.rapidapi.com/movie/id'
-  popularMoviesURL = 'https://imdb8.p.rapidapi.com/title/get-most-popular-movies'
-  comingSoonMoviesURL = 'https://imdb8.p.rapidapi.com/title/get-coming-soon-movies'
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -26,26 +24,11 @@ export class ActorAPIService {
     }),
   };
 
-  httpOptions2 = {
-    headers: new HttpHeaders({
-      "x-rapidapi-host": "imdb8.p.rapidapi.com",
-      "x-rapidapi-key": "6c55a5b78bmsh3b6ba3fac64b16fp14b5c2jsn067be01b7492"
-    }),
-  };
-
   constructor(private httpClient: HttpClient) { }
 
   getMovieInfo(movieId: string): Observable<MovieInfo> {
       var apiURL = `${this.movieAPIURL}${movieId}`
       return this.httpClient.get<MovieInfo>(apiURL, this.httpOptions);
-  }
-
-  getPopularMovieIDs(): Observable<string[]> {
-    return this.httpClient.get<string[]>(this.popularMoviesURL, this.httpOptions2);
-  }
-
-  getComingSoonMovieIDs(): Observable<string[]> {
-    return this.httpClient.get<string[]>(this.comingSoonMoviesURL, this.httpOptions2);
   }
 
   getActorID(actorName: string): Observable<ActorIDResults> {
