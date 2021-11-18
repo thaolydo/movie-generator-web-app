@@ -4,7 +4,7 @@ $buttonBorderColor: rgb(138, 43, 226);
 
 #actorPageBackground {
   overflow: hidden;
-  height: 1350px;
+  height: 150%;
   width: 100%;
   background: #ebf606;
   background: -webkit-linear-gradient(top right, #ebf606, #fa1894);
@@ -17,42 +17,23 @@ $buttonBorderColor: rgb(138, 43, 226);
 #actorPageModal {
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 5px;
-  width: 60vw;
-  height: 925px;
+  width: 68vw;
+  height: 800px;
   display: flex;
   flex-direction: column;
   align-self: center;
-  padding: 3% 4% 3% 4%;
+  padding: 3% 3% 3% 3%;
   font-family: "Avant Garde", Avantgarde, sans-serif;
-}
-
-#landingPageNavBar {
-  display: flex;
-  justify-content: space-between;
-  padding: 2% 5% 2% 5%;
-  align-items: center;
-  margin-bottom: 1%;
-}
-
-#landingPageMainContent {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
-  font-family: $mainFont;
-  text-align: center;
 }
 
 #searchBarText {
     width: 99%;
     height: 50px;
     padding-left: 10px;
-    margin-bottom: 40px;
 }
 
 #category {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 #category label {
@@ -73,7 +54,7 @@ $buttonBorderColor: rgb(138, 43, 226);
 }
 
 #moviePoster {
-  width: 225px;
-  height: 325px;
+  width: 200px;
+  height: 290px;
   margin-right: 20px;
 }

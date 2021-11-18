@@ -35,7 +35,7 @@ export class MainPageComponent implements OnInit {
     for (var title in popularTitles) {
       var movieID = this.parseTitle(popularTitles[title])
       this.actorAPIService.getMovieInfo(movieID).subscribe((movie) => {
-        if (movie.results.banner != null && movie.results.banner.includes('https')) { 
+        if (movie.results.banner != null && movie.results.banner.includes('https') && this.popularMoviePosters.length <= 20) { 
           console.log(movie.results.title)
           console.log(movie.results.banner)
           this.popularMoviePosters.push(movie.results.banner) 
@@ -46,7 +46,7 @@ export class MainPageComponent implements OnInit {
     for (var title in comingSoonTitles) {
       var movieID = this.parseTitle(popularTitles[title])
       this.actorAPIService.getMovieInfo(movieID).subscribe((movie) => {
-        if (movie.results.banner != null && movie.results.banner.includes('https')) { 
+        if (movie.results.banner != null && movie.results.banner.includes('https') && this.comingSoonPosters.length <= 20) { 
           console.log(movie.results.title)
           console.log(movie.results.banner)
           this.comingSoonPosters.push(movie.results.banner) 
