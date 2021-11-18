@@ -5,4 +5,5 @@ export interface Movie {
   stars: Array<string>;
   dateReleased: Date;
   rating: number;
+  id: string;
 }

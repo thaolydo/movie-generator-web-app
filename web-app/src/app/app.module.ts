@@ -20,6 +20,7 @@ import { reducers } from './store/reducers';
 import { ShareMoviePageComponent } from './Pages/share-movie-page/share-movie-page.component';
 import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { MovieModalComponent } from './components/movie-modal/movie-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     ShareMoviePageComponent,
     PageNotFoundComponent,
     NavBarComponent,
+    MovieModalComponent
   ],
   imports: [
     BrowserModule,
@@ -42,11 +44,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    StoreModule.forRoot(
-      reducers
-    )
+    StoreModule.forRoot(reducers),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
