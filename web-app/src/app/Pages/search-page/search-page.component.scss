@@ -1,0 +1,110 @@
+#searchPageOuterDiv {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  width: 60vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  padding-top: 3vh;
+}
+
+#searchPage-searchDiv {
+    display: flex;
+    justify-content: center;
+}
+
+#searchPage-input {
+    color: white;
+  background-color: #333;
+  border-radius:  5px 0px 0px 5px;
+  border: none;
+  width: 20vw;
+  height: 4vh;
+  padding: 8px 20px 8px 20px;
+  margin-bottom: 1vh;
+
+
+  &::placeholder { 
+    color: white;
+    font-size: 1.125vw;
+  }
+}
+
+#searchPage-multi {
+    color: white;
+  background-color: #333;
+  text-align: right;
+  border: none;
+  width:14vw;
+  
+  margin-bottom: 1vh;
+  font-size: 1.125vw;
+}
+
+#searchPage-button {
+ color: white;
+  width: 6vw;
+  height: 6vh;
+  border-radius: 0px 5px 5px 0px;
+  border: none;
+  background-color: #a4508b;
+  background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+  padding: 8px 0px 8px 0px;
+  font-size: 1.125vw;
+}
+
+#searchPageDefaultMessage {
+  text-align: center;
+  color: white;
+}
+
+.movieListImage {
+    height: 18vh;
+    width: 11vw;
+}
+
+.searchMovieTitle {
+    margin-bottom: 1vh;
+}
+
+.searchPageMovieListItem {
+    color: #f8f8ff;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    width: 55vw;
+    height: 18vh;
+    display: flex;
+    margin-bottom: 2vh;
+}
+
+.searchPageMovieListItemRightContent, .searchPageMovieListItemLeftContent {
+    margin-left: 2vw;
+}
+
+#searchMovieList {
+    margin-top: 2vh;
+    overflow-y: scroll;
+    
+    height: 55vh;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+        background-color: #e7e6e6;
+        border-radius: 5px;
+      }
+    
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+        height: 55px;
+        width: 4px;
+      }
+}
+
+.searchPageMovieYear, .searchPageMovieGenre, .searchPageMovieIMDB {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    font-size: 1.125vw;
+}

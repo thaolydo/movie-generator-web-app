@@ -1,0 +1,48 @@
+<div id="searchPageOuterDiv">
+  <!-- Main outer div-->
+
+  <div>
+    <!--Div to hold the content-->
+    <div id="searchPage-searchDiv">
+      <!--Search Div-->
+      <input
+        type="email"
+        id="searchPage-input"
+        placeholder="Search"
+        [(ngModel)]="searchString"
+      />
+      <select name="search-multi" id="searchPage-multi">
+        <option value="Search By Title">Search by Title</option>
+        <option value="Search By Genre">Search by Genre</option>
+        <option value="Search By Year">Search by Year</option>
+        <option value="Search By Actor/Actress">Search by Actor/Actress</option>
+        <option value="Search For Actor/Actress">
+          Search for Actor/Actress
+        </option>
+        <option value="Randomizer">Random</option>
+      </select>
+      <button (click)="getMovieInfo()" id="searchPage-button">Generate!</button>
+    </div>
+    <p *ngIf="!searched" id="searchPageDefaultMessage">{{ errorString }}</p>
+    <div *ngIf="searched && movieList.length>1" id="searchMovieList">
+      <!--Div to hold the list of movies-->
+
+      <div *ngFor="let movie of movieList" class="searchPageMovieListItem">
+        <!--Div to hold example movie -->
+        <div class="searchPageMovieListItemLeftContent">
+          <img class="movieListImage" src="{{movie['photoSrc']}}"/>
+          
+        </div>
+        <div class="searchPageMovieListItemRightContent">
+          <!--Div to hold content of movie -->
+          <h4 class="searchMovieTitle">Title: {{movie['title']}}</h4>
+          <p class="searchPageMovieYear">Released: {{movie['releaseDate']}}</p>
+          <p class="searchPageMovieGenre">Genre: {{movie['genre']}}</p>
+          <p class="searchPageMovieIMDB">Content Rating: {{movie['rated']}}</p>
+          <p class="searchPageMovieIMDB">Director: {{movie['director']}}</p>
+          <p class="searchPageMovieIMDB">IMDB Rating: {{movie['rating']}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
