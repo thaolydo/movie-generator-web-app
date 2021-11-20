@@ -21,7 +21,7 @@
         </option>
         <option value="Randomizer">Random</option>
       </select>
-      <button (click)="getMovieInfo()" id="searchPage-button">Generate!</button>
+      <button (click)="getMovieInfoByYear()" id="searchPage-button">Generate!</button>
     </div>
     <p *ngIf="!searched" id="searchPageDefaultMessage">{{ errorString }}</p>
     <div *ngIf="searched && movieList.length>1" id="searchMovieList">
@@ -35,7 +35,7 @@
         </div>
         <div class="searchPageMovieListItemRightContent">
           <!--Div to hold content of movie -->
-          <h4 class="searchMovieTitle">Title: {{movie['title']}}</h4>
+          <h4 class="searchMovieTitle">{{movie['title']}}</h4>
           <p class="searchPageMovieYear">Released: {{movie['releaseDate']}}</p>
           <p class="searchPageMovieGenre">Genre: {{movie['genre']}}</p>
           <p class="searchPageMovieIMDB">Content Rating: {{movie['rated']}}</p>
