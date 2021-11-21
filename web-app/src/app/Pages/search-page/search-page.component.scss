@@ -60,9 +60,9 @@
   color: white;
 }
 
-.movieListImage {
+.movieListImage  {
     height: 18vh;
-    width: 11vw;
+    width: 9.5vw;
 }
 
 .searchMovieTitle {
@@ -83,11 +83,12 @@
     margin-left: 2vw;
 }
 
-#searchMovieList {
+#searchMovieList, #actorListContainer {
     margin-top: 2vh;
     overflow-y: scroll;
     
     height: 55vh;
+    
 
     &::-webkit-scrollbar {
         width: 4px;
@@ -103,8 +104,49 @@
       }
 }
 
+#actorListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 50vw;
+  align-items: center;
+  justify-content: center;
+}
+
 .searchPageMovieYear, .searchPageMovieGenre, .searchPageMovieIMDB {
     margin-top: 0%;
     margin-bottom: 0%;
-    font-size: 1.125vw;
+    font-size: 1.7vh;
+}
+
+.actorImageDiv {
+  width: 12vw;
+  height: 30vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1vh;
+  margin-right: 1vh;
+}
+
+.actorImageInnerDiv {
+  
+  width: 9vw;
+  height: 26vh;
+  border-color: black;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.actorImage{
+  width: 9vw;
+  height: 23.5vh;
+}
+
+.actorName {
+  font-size: 1.5vh;
+  color: white;
+  text-align: center;
+  margin: 0;
 }

@@ -11,26 +11,27 @@
         placeholder="Search"
         [(ngModel)]="searchString"
       />
-      <select name="search-multi" id="searchPage-multi">
-        <option value="Search By Title">Search by Title</option>
-        <option value="Search By Genre">Search by Genre</option>
-        <option value="Search By Year">Search by Year</option>
-        <option value="Search By Actor/Actress">Search by Actor/Actress</option>
-        <option value="Search For Actor/Actress">
+      <select (change)='selectChangeHandler($event)' name="search-multi" id="searchPage-multi">
+        <option value="Title">Search by Title</option>
+        <option value="Genre">Search by Genre</option>
+        <option value="Year">Search by Year</option>
+        <option value="ByActor">Search by Actor/Actress</option>
+        <option value="ForActor">
           Search for Actor/Actress
         </option>
-        <option value="Randomizer">Random</option>
+        <option value="Random">Random</option>
       </select>
-      <button (click)="getMovieInfoByYear()" id="searchPage-button">Generate!</button>
+      <button (click)="generateFilms()" id="searchPage-button">Generate!</button>
     </div>
-    <p *ngIf="!searched" id="searchPageDefaultMessage">{{ errorString }}</p>
-    <div *ngIf="searched && movieList.length>1" id="searchMovieList">
+
+    <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+    <div *ngIf="movieList.length>1 && showMovieList" id="searchMovieList">
       <!--Div to hold the list of movies-->
 
       <div *ngFor="let movie of movieList" class="searchPageMovieListItem">
         <!--Div to hold example movie -->
         <div class="searchPageMovieListItemLeftContent">
-          <img class="movieListImage" src="{{movie['photoSrc']}}"/>
+          <img class="movieListImage" src="{{movie['photoSrc']}}" alt="Movie Image"/>
           
         </div>
         <div class="searchPageMovieListItemRightContent">
@@ -41,6 +42,14 @@
           <p class="searchPageMovieIMDB">Content Rating: {{movie['rated']}}</p>
           <p class="searchPageMovieIMDB">Director: {{movie['director']}}</p>
           <p class="searchPageMovieIMDB">IMDB Rating: {{movie['rating']}}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="searched && actorList.length>1 && showActorList" id="actorListContainer">
+      <div class="actorImageDiv" *ngFor="let actor of actorList">
+        <div class="actorImageInnerDiv">
+          <img src="{{actor['photoURL']}}" class="actorImage" alt="Actor/Actress">
+          <p class="actorName">{{actor['name']}}</p>
         </div>
       </div>
     </div>

@@ -20,6 +20,7 @@ import { reducers } from './store/reducers';
 import { ShareMoviePageComponent } from './Pages/share-movie-page/share-movie-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchPageComponent } from './Pages/search-page/search-page.component';
+import { LoadingSpinnerComponent } from './UI/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SearchPageComponent } from './Pages/search-page/search-page.component';
     SettingsPageComponent,
     ShareMoviePageComponent,
     NavBarComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
