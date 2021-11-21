@@ -8,7 +8,8 @@ import { SignupPageComponent } from './Pages/signup-page/signup-page.component';
 import { ResetpasswordPageComponent } from './Pages/resetpassword-page/resetpassword-page.component';
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actress-page.component';
-import { PageNotFoundComponent } from './Pages/page-not-found/page-not-found.component';
+import { SearchPageComponent } from './Pages/search-page/search-page.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing-page', pathMatch: 'full' },
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'actor-actress-page', component: ActorActressPageComponent },
   { path: 'settings-page', component: SettingsPageComponent },
   { path: 'share-movie-page', component: ShareMoviePageComponent },
-  { path: '**', pathMatch: 'full', component: PageNotFoundComponent },
+  {path:'search-page', component: SearchPageComponent}
 ];
 
 @NgModule({
