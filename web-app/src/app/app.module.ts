@@ -21,6 +21,7 @@ import { ShareMoviePageComponent } from './Pages/share-movie-page/share-movie-pa
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchPageComponent } from './Pages/search-page/search-page.component';
 import { LoadingSpinnerComponent } from './UI/loading-spinner/loading-spinner.component';
+import { UserWatchlistComponent } from './Page/user-watchlist/user-watchlist.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LoadingSpinnerComponent } from './UI/loading-spinner/loading-spinner.co
     ShareMoviePageComponent,
     NavBarComponent,
     SearchPageComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    UserWatchlistComponent
   ],
   imports: [
     BrowserModule,
