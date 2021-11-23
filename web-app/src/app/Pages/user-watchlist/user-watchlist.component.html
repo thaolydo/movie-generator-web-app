@@ -1,1 +1,11 @@
-<p>user-watchlist works!</p>
+<div id="actorPageModal">
+    <div id="actorPageInnerDiv">
+        <h1>User WatchList</h1>
+          <div id="carousel">
+            <div *ngFor="let movie of movieList" id="slide"> 
+                <button type="submit" id="moviePoster" (click)="showModal()"><img [src]="movie['photoSrc']" alt="Movie" id="moviePoster"></button>
+                <label id="title" style="margin-top: 10px">{{movie['title']}}</label>
+              </div>
+          </div>
+    </div>
+  </div>
