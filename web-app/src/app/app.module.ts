@@ -22,6 +22,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchPageComponent } from './Pages/search-page/search-page.component';
 import { LoadingSpinnerComponent } from './UI/loading-spinner/loading-spinner.component';
 import { UserWatchlistComponent } from './Pages/user-watchlist/user-watchlist.component';
+import { WatchlistModalComponent } from './components/watchlist-modal/watchlist-modal.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UserWatchlistComponent } from './Pages/user-watchlist/user-watchlist.co
     NavBarComponent,
     SearchPageComponent,
     LoadingSpinnerComponent,
-    UserWatchlistComponent
+    UserWatchlistComponent,
+    WatchlistModalComponent
   ],
   imports: [
     BrowserModule,
