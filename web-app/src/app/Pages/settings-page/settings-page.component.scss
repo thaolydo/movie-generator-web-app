@@ -131,7 +131,9 @@ $buttonBorderColor: rgb(138, 43, 226);
 #feedbackInnerDiv,
 #helpUsageInnerDiv,
 #helpContactInnerDiv,
-#helpDeleteInnerDiv {
+#helpDeleteInnerDiv,
+#helpCreatePlaylistInnerDiv,
+#helpShareInnerDiv {
   display: flex;
   flex-direction: column;
   width: 30vw;
@@ -205,7 +207,9 @@ $buttonBorderColor: rgb(138, 43, 226);
 #feedbackPopup,
 #helpUsagePopup,
 #helpContactPopup,
-#helpDeletePopup {
+#helpDeletePopup,
+#helpCreatePlaylistPopup,
+#helpSharePopup {
   display: flex;
   align-items: center;
   justify-content: center;

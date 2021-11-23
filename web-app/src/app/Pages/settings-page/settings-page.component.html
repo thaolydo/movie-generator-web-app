@@ -297,23 +297,18 @@
         placeholder="How to delete account"
       />
       <input
-        (click)="showAccountDetailsModal()"
+        (click)="showHelpCreatePlaylistModal()"
         readonly
         class="settingsPageLinkHelp"
         placeholder="How to create playlists"
       />
       <input
-        (click)="showRecommendationModal()"
+        (click)="showHelpShareModal()"
         readonly
         class="settingsPageLinkHelp"
         placeholder="How to share a movie"
       />
-      <input
-        (click)="showAppearanceModal()"
-        readonly
-        class="settingsPageLinkHelp"
-        placeholder="How to link external accounts"
-      />
+      
       
       <button mat-raised-button (click)="showHelpModal()" class="settingsModalBackButton">Go Back</button>
     </div>
@@ -347,6 +342,21 @@
 
         </p>
         <button mat-raised-button (click)="showHelpDeleteModal()" class="settingsModalBackButton">Close</button>
+    </div>
+  </div>
+  <div style="display: none" id="helpCreatePlaylistPopup">
+    <div id="helpCreatePlaylistInnerDiv">
+      <p>To create a playlist, navigate to the search page and find a film to add to a playlist. Click on this movie to open the modal and click the add to playlist button and then click the create new playlist button to create a new playlist and add this movie to the newly created playlist.
+        </p>
+        <button mat-raised-button (click)="showHelpCreatePlaylistModal()" class="settingsModalBackButton">Close</button>
+    </div>
+  </div>
+  <div style="display: none" id="helpSharePopup">
+    <div id="helpShareInnerDiv">
+      <p>
+        To share a film, navigate to the search page and find a film to share. Click on this movie to open the modal and click the share movie link. Enter the name and email of the person you would like to share this with and they will receive a link to this movie.
+        </p>
+        <button mat-raised-button (click)="showHelpShareModal()" class="settingsModalBackButton">Close</button>
     </div>
   </div>
   <div style="display: none" id="termsAndConditionsPopup">

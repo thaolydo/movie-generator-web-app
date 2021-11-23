@@ -22,6 +22,8 @@ export class SettingsPageComponent implements OnInit {
   helpUsageModalVisible: string = 'none';
   helpContactModalVisible: string = 'none';
   helpDeleteModalVisible: string = 'none';
+  helpCreatePlaylistModalVisible: string = 'none';
+  helpShareModalVisible: string = 'none';
 
   firstName: string = '';
   lastName: string = '';
@@ -462,6 +464,64 @@ export class SettingsPageComponent implements OnInit {
       this.helpDeleteModalVisible = 'none';
       if (showHelpDeleteModal)
         (showHelpDeleteModal as HTMLFormElement).style.display = 'none';
+    }
+  }
+
+  showHelpCreatePlaylistModal = () => {
+    let showHelpCreatePlaylistModal = document.getElementById('helpCreatePlaylistPopup');
+    let mainHelpModal = document.getElementById('helpPopup');
+
+    if (this.helpModalVisible == 'none') {
+      // shows the help modal
+      this.helpModalVisible = 'flex';
+      if (mainHelpModal)
+        (mainHelpModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.helpModalVisible == 'flex') {
+      // hides the help modal
+      this.helpModalVisible = 'none';
+      if (mainHelpModal)
+        (mainHelpModal as HTMLFormElement).style.display = 'none';
+    }
+
+    if (this.helpCreatePlaylistModalVisible == 'none') {
+      // shows the help create playlist modal
+      this.helpCreatePlaylistModalVisible = 'flex';
+      if (showHelpCreatePlaylistModal)
+        (showHelpCreatePlaylistModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.helpCreatePlaylistModalVisible == 'flex') {
+      // hides the help create playlist modal
+      this.helpCreatePlaylistModalVisible = 'none';
+      if (showHelpCreatePlaylistModal)
+        (showHelpCreatePlaylistModal as HTMLFormElement).style.display = 'none';
+    }
+  }
+
+  showHelpShareModal = () => {
+    let showHelpShareModal = document.getElementById('helpSharePopup');
+    let mainHelpModal = document.getElementById('helpPopup');
+
+    if (this.helpModalVisible == 'none') {
+      // shows the help modal
+      this.helpModalVisible = 'flex';
+      if (mainHelpModal)
+        (mainHelpModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.helpModalVisible == 'flex') {
+      // hides the help modal
+      this.helpModalVisible = 'none';
+      if (mainHelpModal)
+        (mainHelpModal as HTMLFormElement).style.display = 'none';
+    }
+
+    if (this.helpShareModalVisible == 'none') {
+      // shows the help share modal
+      this.helpShareModalVisible = 'flex';
+      if (showHelpShareModal)
+        (showHelpShareModal as HTMLFormElement).style.display = 'flex';
+    } else if (this.helpShareModalVisible == 'flex') {
+      // hides the help share modal
+      this.helpShareModalVisible = 'none';
+      if (showHelpShareModal)
+        (showHelpShareModal as HTMLFormElement).style.display = 'none';
     }
   }
 
