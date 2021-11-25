@@ -1,10 +1,10 @@
 <div id="actorPageModal">
     <div id="actorPageInnerDiv">
-        <h1>User WatchList</h1>
+        <h1>User Watchlist</h1>
           <div id="carousel">
-            <div *ngFor="let movie of movieList" id="slide"> 
-                <button type="submit" id="moviePoster" (click)="showModal()"><img [src]="movie['photoSrc']" alt="Movie" id="moviePoster"></button>
-                <label id="title" style="margin-top: 10px">{{movie['title']}}</label>
+            <div *ngFor="let movie of watchListMovies" id="slide"> 
+                <button type="submit" id="moviePoster" (click)="showModal(movie)"><img [src]="movie.Poster" alt="Movie" id="moviePoster"></button>
+                <label id="title" style="margin-top: 10px">{{movie.Title}}</label>
               </div>
           </div>
     </div>

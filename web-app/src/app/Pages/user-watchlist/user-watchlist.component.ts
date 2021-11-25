@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieData } from 'src/app/interfaces/movieData.interface';
-
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { WatchlistModalComponent } from 'src/app/components/watchlist-modal/watchlist-modal.component';
+import { ActorAPIService } from 'src/app/services/actor-api.service';
+import { AltMovie } from 'src/app/JSON Classes/AltMovie';
 
 @Component({
   selector: 'app-user-watchlist',
@@ -9,15 +12,44 @@ import { MovieData } from 'src/app/interfaces/movieData.interface';
 })
 export class UserWatchlistComponent implements OnInit {
 
-  movieList: MovieData[] = [{title: "Cast Away", releaseDate: "December 7, 2000", genre: "Drama", director: "Robert Zemeckis", rating: "8.6", rated: "R", photoSrc: "https://m.media-amazon.com/images/M/MV5BN2Y5ZTU4YjctMDRmMC00MTg4LWE1M2MtMjk4MzVmOTE4YjkzXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_UX182_CR0,0,182,268_AL_.jpg"}, {title: "Cast Away", releaseDate: "December 7, 2000", genre: "Drama", director: "Robert Zemeckis", rating: "8.6", rated: "R", photoSrc: "https://m.media-amazon.com/images/M/MV5BN2Y5ZTU4YjctMDRmMC00MTg4LWE1M2MtMjk4MzVmOTE4YjkzXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_UX182_CR0,0,182,268_AL_.jpg"}, {title: "Cast Away", releaseDate: "December 7, 2000", genre: "Drama", director: "Robert Zemeckis", rating: "8.6", rated: "R", photoSrc: "https://m.media-amazon.com/images/M/MV5BN2Y5ZTU4YjctMDRmMC00MTg4LWE1M2MtMjk4MzVmOTE4YjkzXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_UX182_CR0,0,182,268_AL_.jpg"}, {title: "Cast Away", releaseDate: "December 7, 2000", genre: "Drama", director: "Robert Zemeckis", rating: "8.6", rated: "R", photoSrc: "https://m.media-amazon.com/images/M/MV5BN2Y5ZTU4YjctMDRmMC00MTg4LWE1M2MtMjk4MzVmOTE4YjkzXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_UX182_CR0,0,182,268_AL_.jpg"}, {title: "Cast Away", releaseDate: "December 7, 2000", genre: "Drama", director: "Robert Zemeckis", rating: "8.6", rated: "R", photoSrc: "https://m.media-amazon.com/images/M/MV5BN2Y5ZTU4YjctMDRmMC00MTg4LWE1M2MtMjk4MzVmOTE4YjkzXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_UX182_CR0,0,182,268_AL_.jpg"}, {title: "Cast Away", releaseDate: "December 7, 2000", genre: "Drama", director: "Robert Zemeckis", rating: "8.6", rated: "R", photoSrc: "https://m.media-amazon.com/images/M/MV5BN2Y5ZTU4YjctMDRmMC00MTg4LWE1M2MtMjk4MzVmOTE4YjkzXkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_UX182_CR0,0,182,268_AL_.jpg"}];
+  movieIDs = ["tt9032400", "tt1160419", "tt13024674", "tt10696784", "tt9639470"]
+  watchListMovies: AltMovie[] = []
 
-  constructor() { }
+  constructor(public matDialog: MatDialog, private actorAPIService: ActorAPIService) { }
 
   ngOnInit(): void {
+    // get list of id's from backend
+    // loop through list of ID and call API to get movie info and save info in Movie array
+    // then through ngFor pass that movie into showModal
+    for (var index in this.movieIDs) {
+      this.actorAPIService.getAltMovieInfo(this.movieIDs[index]).subscribe(movieInfo => {
+        this.watchListMovies.push(movieInfo)
+      })
+    }
   }
 
-  showModal() {
-    console.log("Showing Modal")
+  showModal(movie: AltMovie) {
+    console.log(movie)
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "800px";
+    dialogConfig.width = "1100px";
+    dialogConfig.data = {
+      title: movie.Title,
+      poster: movie.Poster,
+      director: movie.Director,
+      actors: movie.Actors,
+      rating: movie.imdbRating,
+      rated: movie.Rated,
+      boxOffice: movie.BoxOffice,
+      movieID: movie.imdbID,
+      plot: movie.Plot,
+      genre: movie.Genre,
+      released: movie.Released,
+      metascore: movie.metascore,
+      writers: movie.Writers
+    }
+    const modalDialog = this.matDialog.open(WatchlistModalComponent, dialogConfig);
   }
 
 }
