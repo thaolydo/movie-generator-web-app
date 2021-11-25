@@ -9,6 +9,7 @@ import { ResetpasswordPageComponent } from './Pages/resetpassword-page/resetpass
 import { MainPageComponent } from './Pages/main-page/main-page.component';
 import { ActorActressPageComponent } from './Pages/actor-actress-page/actor-actress-page.component';
 import { SearchPageComponent } from './Pages/search-page/search-page.component';
+import { UserWatchlistComponent } from './Pages/user-watchlist/user-watchlist.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'actor-actress-page', component: ActorActressPageComponent },
   { path: 'settings-page', component: SettingsPageComponent },
   { path: 'share-movie-page', component: ShareMoviePageComponent },
-  {path:'search-page', component: SearchPageComponent}
+  {path:'search-page', component: SearchPageComponent},
+  {path:'user-watchlist', component: UserWatchlistComponent}
 ];
 
 @NgModule({

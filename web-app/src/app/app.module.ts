@@ -10,6 +10,8 @@ import { SignupPageComponent } from './Pages/signup-page/signup-page.component';
 import { ResetpasswordPageComponent } from './Pages/resetpassword-page/resetpassword-page.component';
 import { SettingsPageComponent } from './Pages/settings-page/settings-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
@@ -21,6 +23,9 @@ import { ShareMoviePageComponent } from './Pages/share-movie-page/share-movie-pa
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { SearchPageComponent } from './Pages/search-page/search-page.component';
 import { LoadingSpinnerComponent } from './UI/loading-spinner/loading-spinner.component';
+import { UserWatchlistComponent } from './Pages/user-watchlist/user-watchlist.component';
+import { WatchlistModalComponent } from './components/watchlist-modal/watchlist-modal.component';
+import { WatchlistServiceService } from './services/watchlist-service.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +40,9 @@ import { LoadingSpinnerComponent } from './UI/loading-spinner/loading-spinner.co
     ShareMoviePageComponent,
     NavBarComponent,
     SearchPageComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    UserWatchlistComponent,
+    WatchlistModalComponent
   ],
   imports: [
     BrowserModule,
@@ -44,11 +51,13 @@ import { LoadingSpinnerComponent } from './UI/loading-spinner/loading-spinner.co
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    MatButtonModule,
+    MatDialogModule,
     StoreModule.forRoot(
       reducers
     )
   ],
-  providers: [],
+  providers: [WatchlistServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,19 @@
+<div id="modal-content-wrapper">
+    <header id="modal-header">
+        <img [src]="modalData.poster" id="moviePoster">
+    </header>
+    <section id="modal-body">
+        <h1 *ngIf="modalData.title != null" id="modal-title">{{ modalData.title }}</h1>
+        <h1 *ngIf="modalData.plot != null" id="modal-info">Plot: {{ modalData.plot }}</h1>
+        <h1 *ngIf="modalData.directors != null" id="modal-info">Director: {{ modalData.director }}</h1>
+        <h1 *ngIf="modalData.actors != null" id="modal-info">Actors: {{ modalData.actors }}</h1>
+        <h1 *ngIf="modalData.writers != null" id="modal-info">Writers: {{ modalData.writers }}</h1>
+        <h1 *ngIf="modalData.released != null" id="modal-info">Released: {{ modalData.released }}</h1>
+        <h1 *ngIf="modalData.genre != null" id="modal-info">Genre: {{ modalData.genre }}</h1>
+        <h1 *ngIf="modalData.rated != null" id="modal-info">Rated: {{ modalData.rated }}</h1>
+        <h1 *ngIf="modalData.rating != null" id="modal-info">IMDB Rating: {{ modalData.rating }}</h1>
+        <h1 *ngIf="modalData.metascore != null" id="modal-info">Metascore: {{ modalData.metascore }}</h1>
+        <h1 *ngIf="modalData.boxOffice != null" id="modal-info">Box Office: {{ modalData.boxOffice }}</h1>
+    </section>
+    <br>
+</div>
