@@ -6,4 +6,5 @@ export interface MovieData {
   rating: string,
   rated: string,
   photoSrc: string,
+  imdb:string;
 }

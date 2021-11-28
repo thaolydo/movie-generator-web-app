@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { select } from '@ngrx/store';
 import { ActorData } from 'src/app/interfaces/actorData.interface';
 import { MovieData } from 'src/app/interfaces/movieData.interface';
+import { ActorAPIService } from 'src/app/services/actor-api.service';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-search-page',
@@ -20,6 +22,7 @@ export class SearchPageComponent implements OnInit {
   apiResponse: String = ''; // Response from API
   errorString: string = 'Please enter a search term'; // Error string from search
   searchBy: string = 'Title';
+  popupMovieTitle: string = 'Ehhh';
 
   showSpinnerCommand = () => {
     if (this.showSpinner == true) {
@@ -90,6 +93,7 @@ export class SearchPageComponent implements OnInit {
             rating: data['imdbRating'],
             rated: data['Rated'],
             photoSrc: data['Poster'],
+            imdb: data['imdbID'],
           });
         });
       })
@@ -228,6 +232,7 @@ export class SearchPageComponent implements OnInit {
                           rating: data['imdb_rating'],
                           rated: data['rated'],
                           photoSrc: imdbTitlesList[step + 1],
+                          imdb: data['imdb_id'],
                         });
                       } else {
                         this.movieList.push({
@@ -238,6 +243,7 @@ export class SearchPageComponent implements OnInit {
                           rating: data['imdb_rating'],
                           rated: 'N/A',
                           photoSrc: imdbTitlesList[step + 1],
+                          imdb: data['imdb_id'],
                         });
                       }
                     }
@@ -452,9 +458,52 @@ export class SearchPageComponent implements OnInit {
     this.showSpinnerCommand();
   };
 
-  openMovieDetailsModal = () => {}; //pass movie data as parameter
+  addToWatchLater = (imdbID: string) => {
+    //For Steven: imdbID is the imdb id for the database
+    console.log(imdbID);
+  };
 
-  constructor() {}
+  showAddedMoviePopup = async (movieTitle: string) => {
+    this.popupMovieTitle = movieTitle;
+    let addedMoviePopup = document.getElementById('addedMoviePopup');
+
+    if (addedMoviePopup) {
+      //fade in
+       for (let i = 0; i <= 1; i += 0.01) {
+        i = Math.round(i * 100) / 100;
+        setTimeout( function () {
+          (addedMoviePopup as HTMLFormElement).style.opacity = i.toString();
+        }, i * 1000);      
+      }
+
+      setTimeout(function () {
+        //fade out
+        (addedMoviePopup as HTMLFormElement).style.opacity = '1';
+      for (let i = 1; i > 0; i += -0.01) {
+        //console.log(i * 1000)
+       
+        console.log(i)
+         setTimeout( function () {
+          (addedMoviePopup as HTMLFormElement).style.opacity = (1 - i).toString();
+          console.log((addedMoviePopup as HTMLFormElement).style.opacity)
+          //console.log(i)
+         
+        }, i * 1000);      
+      }
+      },3000)
+      
+    }
+  };
+
+  openMovieDetailsModal = (imdbID: string) => {
+    //For Raymond: imdbID is the imdb id for the modal
+    console.log(imdbID);
+  };
+
+  constructor(
+    public matDialog: MatDialog,
+    private actorAPIService: ActorAPIService
+  ) {}
 
   ngOnInit(): void {
     //this.movieList.subscribe(() => this.showSpinner = false)

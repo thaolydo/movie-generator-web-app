@@ -11,42 +11,42 @@
 }
 
 #searchPage-searchDiv {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #searchPage-input {
-    color: white;
+  color: white;
   background-color: #333;
-  border-radius:  5px 0px 0px 5px;
+  border-radius: 5px 0px 0px 5px;
   border: none;
   width: 20vw;
   height: 4vh;
-  padding: 8px 20px 8px 20px;
+  padding: 1.2vh 20px 1.2vh 20px;
+  
   margin-bottom: 1vh;
 
-
-  &::placeholder { 
+  &::placeholder {
     color: white;
     font-size: 1.125vw;
   }
 }
 
 #searchPage-multi {
-    color: white;
+  color: white;
   background-color: #333;
   text-align: right;
   border: none;
-  width:14vw;
-  
+  width: 14vw;
+
   margin-bottom: 1vh;
   font-size: 1.125vw;
 }
 
 #searchPage-button {
- color: white;
+  color: white;
   width: 6vw;
-  height: 6vh;
+  height: 6.4vh;
   border-radius: 0px 5px 5px 0px;
   border: none;
   background-color: #a4508b;
@@ -55,53 +55,116 @@
   font-size: 1.125vw;
 }
 
+#addedMoviePopup{
+  display: flex;
+  justify-content: center;
+  position:absolute;
+  margin-left: 13vw;
+  z-index: 2;
+}
+
+#addedMovieInnerDiv {
+  width: 30vw;
+  height: 22vh;
+  text-align: center;
+  color: white;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addedMovieText {
+ font-size: 1.5em;
+}
+
 #searchPageDefaultMessage {
   text-align: center;
   color: white;
 }
 
-.movieListImage  {
-    height: 18vh;
-    width: 9.5vw;
+.movieListImage {
+  height: 18vh;
+  width: 9.5vw;
 }
 
 .searchMovieTitle {
-    margin-bottom: 1vh;
+  margin-bottom: 1vh;
 }
 
 .searchPageMovieListItem {
-    color: #f8f8ff;
-    background-color: rgba(0, 0, 0, 0.75);
+  color: #f8f8ff;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 5px;
+  width: 55vw;
+  height: 18vh;
+  display: flex;
+  margin-bottom: 2vh;
+  justify-content: space-between;
+}
+
+.searchPageMovieListItemRightContent,
+.searchPageMovieListItemLeftContent,
+.searchPageLeftContentItem {
+  margin-left: 2vw;
+}
+
+.searchPageMovieListItemLeftContent,
+.searchPageMovieListItemRightContent {
+  display: flex;
+}
+
+.searchPageMovieListItemRightContent {
+  justify-content: center;
+  align-items: center;
+  margin-right: 2vw;
+}
+
+
+
+.searchAddButton {
+  color: white;
+  background: #6FF0CA;
+background: -webkit-linear-gradient(top right, #6FF0CA, #C251DC);
+background: -moz-linear-gradient(top right, #6FF0CA, #C251DC);
+background: linear-gradient(to bottom left, #6FF0CA, #C251DC);
+  width: 8vw;
+  height: 6vh;
+  border-radius: 0px 5px 5px 0px;
+  border: none;
+  padding: 8px 0px 8px 0px;
+  border-radius: 5px;
+}
+
+.searchAddButtonText {
+  
+  
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+#searchMovieList,
+#actorListContainer {
+  margin-top: 2vh;
+  overflow-y: scroll;
+
+  height: 55vh;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: #e7e6e6;
     border-radius: 5px;
-    width: 55vw;
-    height: 18vh;
-    display: flex;
-    margin-bottom: 2vh;
-}
+  }
 
-.searchPageMovieListItemRightContent, .searchPageMovieListItemLeftContent {
-    margin-left: 2vw;
-}
-
-#searchMovieList, #actorListContainer {
-    margin-top: 2vh;
-    overflow-y: scroll;
-    
-    height: 55vh;
-    
-
-    &::-webkit-scrollbar {
-        width: 4px;
-        background-color: #e7e6e6;
-        border-radius: 5px;
-      }
-    
-      &::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 5px;
-        height: 55px;
-        width: 4px;
-      }
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+    height: 55px;
+    width: 4px;
+  }
 }
 
 #actorListContainer {
@@ -112,10 +175,12 @@
   justify-content: center;
 }
 
-.searchPageMovieYear, .searchPageMovieGenre, .searchPageMovieIMDB {
-    margin-top: 0%;
-    margin-bottom: 0%;
-    font-size: 1.7vh;
+.searchPageMovieYear,
+.searchPageMovieGenre,
+.searchPageMovieIMDB {
+  margin-top: 0%;
+  margin-bottom: 0%;
+  font-size: 1.7vh;
 }
 
 .actorImageDiv {
@@ -131,7 +196,6 @@
 }
 
 .actorImageInnerDiv {
-  
   width: 9vw;
   height: 26vh;
   border-color: black;
@@ -139,7 +203,7 @@
   border-style: solid;
 }
 
-.actorImage{
+.actorImage {
   width: 9vw;
   height: 23.5vh;
 }
