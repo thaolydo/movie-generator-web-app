@@ -480,13 +480,10 @@ export class SearchPageComponent implements OnInit {
         //fade out
         (addedMoviePopup as HTMLFormElement).style.opacity = '1';
       for (let i = 1; i > 0; i += -0.01) {
-        //console.log(i * 1000)
-       
-        console.log(i)
+        
          setTimeout( function () {
           (addedMoviePopup as HTMLFormElement).style.opacity = (1 - i).toString();
-          console.log((addedMoviePopup as HTMLFormElement).style.opacity)
-          //console.log(i)
+          
          
         }, i * 1000);      
       }
