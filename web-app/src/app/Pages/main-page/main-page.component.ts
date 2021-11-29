@@ -35,12 +35,16 @@ export class MainPageComponent implements OnInit {
     await this.delay(1000);
     for (var title in popularTitles) {
       var movieID = this.parseTitle(popularTitles[title])
-      this.actorAPIService.getAltMovieInfo(movieID).subscribe((movie) => this.popularMovies.push(movie))
+      if (this.popularMovies.length <= 15) {
+        this.actorAPIService.getAltMovieInfo(movieID).subscribe((movie) => this.popularMovies.push(movie))
+      }
     }
 
     for (var title in comingSoonTitles) {
       var movieID = this.parseTitle(popularTitles[title])
-      this.actorAPIService.getAltMovieInfo(movieID).subscribe((movie) => this.comingSoonMovies.push(movie))
+      if (this.comingSoonMovies.length <= 15) {
+        this.actorAPIService.getAltMovieInfo(movieID).subscribe((movie) => this.comingSoonMovies.push(movie))
+      }
     }
   
   }
