@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActorAPIService } from 'src/app/services/actor-api.service';
+import { AltMovie } from 'src/app/JSON Classes/AltMovie';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { WatchlistModalComponent } from 'src/app/components/watchlist-modal/watchlist-modal.component';
 
 @Component({
   selector: 'app-main-page',
@@ -9,19 +12,17 @@ import { ActorAPIService } from 'src/app/services/actor-api.service';
 export class MainPageComponent implements OnInit {
 
   searchBarText: string = ""
-  popularMoviePosters: string[] = []
-  comingSoonPosters: string[] = []
+  popularMovies: AltMovie[] = []
+  comingSoonMovies: AltMovie[] = []
 
-  constructor(private actorAPIService: ActorAPIService) { }
+  constructor(private actorAPIService: ActorAPIService, public matDialog: MatDialog) { }
 
   async ngOnInit(): Promise<void> {
 
     var popularTitles : string[] = []
     var comingSoonTitles : string[] = []
-    var popularTitles = ["/title/tt9032400/", "/title/tt1160419/", "/title/tt13024674/", "/title/tt10696784/", "/title/tt9639470/", 
-                        "/title/tt2382320/", "/title/tt3420504/", "/title/tt8847712/", "/title/tt10665338/", "/title/tt5108870/"]
-    var comingSoonTitles = ["/title/tt9032400/", "/title/tt1160419/", "/title/tt13024674/", "/title/tt10696784/", "/title/tt9639470/", 
-                        "/title/tt2382320/", "/title/tt3420504/", "/title/tt8847712/", "/title/tt10665338/", "/title/tt5108870/"]
+    var popularTitles = ["/title/tt9032400/", "/title/tt1160419/", "/title/tt13024674/", "/title/tt10696784/", "/title/tt9639470/"]
+    var comingSoonTitles = ["/title/tt9032400/", "/title/tt1160419/", "/title/tt13024674/", "/title/tt10696784/", "/title/tt9639470/"]
                         
     // this.actorAPIService.getPopularMovieIDs().subscribe(movieIDs => {
     //   popularTitles = movieIDs
@@ -34,36 +35,51 @@ export class MainPageComponent implements OnInit {
     await this.delay(1000);
     for (var title in popularTitles) {
       var movieID = this.parseTitle(popularTitles[title])
-      this.actorAPIService.getMovieInfo(movieID).subscribe((movie) => {
-        if (movie.results.banner != null && movie.results.banner.includes('https') && this.popularMoviePosters.length <= 20) { 
-          console.log(movie.results.title)
-          console.log(movie.results.banner)
-          this.popularMoviePosters.push(movie.results.banner) 
-        }
-      })
+      this.actorAPIService.getAltMovieInfo(movieID).subscribe((movie) => this.popularMovies.push(movie))
     }
 
     for (var title in comingSoonTitles) {
       var movieID = this.parseTitle(popularTitles[title])
-      this.actorAPIService.getMovieInfo(movieID).subscribe((movie) => {
-        if (movie.results.banner != null && movie.results.banner.includes('https') && this.comingSoonPosters.length <= 20) { 
-          console.log(movie.results.title)
-          console.log(movie.results.banner)
-          this.comingSoonPosters.push(movie.results.banner) 
-        }
-      })
+      this.actorAPIService.getAltMovieInfo(movieID).subscribe((movie) => this.comingSoonMovies.push(movie))
     }
   
   }
 
   parseTitle(movieTitle: string) : string {
-    movieTitle = movieTitle.replace("/title", "");
+    movieTitle = movieTitle.replace("/title/", "");
+    movieTitle = movieTitle.replace("/", "");
     console.log(movieTitle)
     return movieTitle;
   }
 
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+
+  showModal(movie: AltMovie) {
+    console.log(movie)
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "800px";
+    dialogConfig.width = "1100px";
+    dialogConfig.data = {
+      title: movie.Title,
+      poster: movie.Poster,
+      director: movie.Director,
+      actors: movie.Actors,
+      rating: movie.imdbRating,
+      rated: movie.Rated,
+      boxOffice: movie.BoxOffice,
+      movieID: movie.imdbID,
+      plot: movie.Plot,
+      genre: movie.Genre,
+      released: movie.Released,
+      metascore: movie.metascore,
+      writers: movie.Writers,
+      showAddToWatchlist: true
+    }
+    const modalDialog = this.matDialog.open(WatchlistModalComponent, dialogConfig);
   }
 
 }

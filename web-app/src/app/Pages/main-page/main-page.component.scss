@@ -36,8 +36,9 @@ $buttonBorderColor: rgb(138, 43, 226);
     margin-bottom: 15px;
 }
 
-#category label {
-    font-size: 1000;
+#category h1 {
+  font-size: 30px;
+  color: white;
 }
 
 #carousel {
@@ -49,12 +50,20 @@ $buttonBorderColor: rgb(138, 43, 226);
   overflow-x: auto;
 }
 
-#carousel .slide {
-  white-space: nowrap;
+#slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title {
+  color: white;
 }
 
 #moviePoster {
   width: 200px;
-  height: 290px;
-  margin-right: 20px;
+  height: 275px;
+  margin-right: 25px;
+  background-color: rgba(0,0,0,0);
+  border: none;
 }
