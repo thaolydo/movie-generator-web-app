@@ -17,4 +17,9 @@ export class WatchlistModalComponent implements OnInit {
 
   ngOnInit() { }
 
+  addToWatchlist(movieID: string) {
+    console.log(movieID)
+    // For Steve: Add IMDB Id to user watchlist
+  }
+
 }
