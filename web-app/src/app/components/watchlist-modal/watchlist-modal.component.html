@@ -14,6 +14,7 @@
         <h1 *ngIf="modalData.rating != null" id="modal-info">IMDB Rating: {{ modalData.rating }}</h1>
         <h1 *ngIf="modalData.metascore != null" id="modal-info">Metascore: {{ modalData.metascore }}</h1>
         <h1 *ngIf="modalData.boxOffice != null" id="modal-info">Box Office: {{ modalData.boxOffice }}</h1>
+        <button *ngIf="modalData.showAddToWatchlist" id="watchlistButton" (click)="addToWatchlist(modalData.movieID)">Add To Watchlist</button>
     </section>
     <br>
 </div>

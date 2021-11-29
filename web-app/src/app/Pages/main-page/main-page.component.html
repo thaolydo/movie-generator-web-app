@@ -5,16 +5,18 @@
       <div id="category">
         <h1>Most Popular Movies</h1>
         <div id="carousel">
-          <div *ngFor="let moviePoster of popularMoviePosters" id="slide"> 
-            <img [src]='moviePoster' id="moviePoster"/>
+          <div *ngFor="let movie of popularMovies" id="slide"> 
+            <button type="submit" id="moviePoster" (click)="showModal(movie)"><img [src]="movie.Poster" alt="Movie" id="moviePoster"></button>
+            <label id="title" style="margin-top: 10px">{{movie.Title}}</label>
           </div>
         </div>
     </div>
     <div id="category">
-        <h1>Movies Coming Soon</h1>
+        <h1 id="categoryLabel">Movies Coming Soon</h1>
         <div id="carousel">
-          <div *ngFor="let moviePoster of comingSoonPosters" id="slide"> 
-            <img [src]='moviePoster' id="moviePoster"/>
+          <div *ngFor="let movie of comingSoonMovies" id="slide"> 
+            <button type="submit" id="moviePoster" (click)="showModal(movie)"><img [src]="movie.Poster" alt="Movie" id="moviePoster"></button>
+            <label id="title" style="margin-top: 10px">{{movie.Title}}</label>
           </div>
         </div>
     </div>
