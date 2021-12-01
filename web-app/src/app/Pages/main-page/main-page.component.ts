@@ -22,7 +22,7 @@ export class MainPageComponent implements OnInit {
     var popularTitles : string[] = []
     var comingSoonTitles : string[] = []
     var popularTitles = ["/title/tt9032400/", "/title/tt1160419/", "/title/tt13024674/", "/title/tt10696784/", "/title/tt9639470/"]
-    var comingSoonTitles = ["/title/tt9032400/", "/title/tt1160419/", "/title/tt13024674/", "/title/tt10696784/", "/title/tt9639470/"]
+    var comingSoonTitles = ["/title/tt6264654/", "/title/tt7097896/", "/title/tt4244994/", "/title/tt7740510/", "/title/tt12536294/"]
                         
     // this.actorAPIService.getPopularMovieIDs().subscribe(movieIDs => {
     //   popularTitles = movieIDs
@@ -41,7 +41,7 @@ export class MainPageComponent implements OnInit {
     }
 
     for (var title in comingSoonTitles) {
-      var movieID = this.parseTitle(popularTitles[title])
+      var movieID = this.parseTitle(comingSoonTitles[title])
       if (this.comingSoonMovies.length <= 15) {
         this.actorAPIService.getAltMovieInfo(movieID).subscribe((movie) => this.comingSoonMovies.push(movie))
       }

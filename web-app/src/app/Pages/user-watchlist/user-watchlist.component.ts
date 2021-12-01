@@ -12,7 +12,7 @@ import { AltMovie } from 'src/app/JSON Classes/AltMovie';
 })
 export class UserWatchlistComponent implements OnInit {
 
-  movieIDs = ["tt9032400", "tt1160419", "tt13024674", "tt10696784", "tt9639470"]
+  movieIDs = ["tt10696784"]
   watchListMovies: AltMovie[] = []
 
   constructor(public matDialog: MatDialog, private actorAPIService: ActorAPIService) { }
