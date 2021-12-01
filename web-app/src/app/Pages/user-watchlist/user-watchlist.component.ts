@@ -54,7 +54,8 @@ export class UserWatchlistComponent implements OnInit {
       released: movie.Released,
       metascore: movie.metascore,
       writers: movie.Writers,
-      showAddToWatchlist: false
+      showAddToWatchlist: false,
+      showRemoveFromWatchlist: true,
     }
     const modalDialog = this.matDialog.open(WatchlistModalComponent, dialogConfig);
   }

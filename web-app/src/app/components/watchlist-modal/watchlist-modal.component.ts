@@ -25,4 +25,9 @@ export class WatchlistModalComponent implements OnInit {
     this.snackBar.open('Successfully add the movie to watchlist', 'close', { duration: 3000 });
   }
 
+  async removeFromWatchlist(movieId: string) {
+    await this.watchlistService.removeFromWatchlist(movieId);
+    this.snackBar.open('Successfully remove the movie from watchlist', 'close', { duration: 3000 });
+  }
+
 }
