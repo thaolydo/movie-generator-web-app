@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { WatchlistModalComponent } from 'src/app/components/watchlist-modal/watchlist-modal.component';
 import { ActorAPIService } from 'src/app/services/actor-api.service';
 import { AltMovie } from 'src/app/JSON Classes/AltMovie';
+import { WatchlistService } from 'src/app/services/watchlist.service';
 
 @Component({
   selector: 'app-user-watchlist',
@@ -12,15 +13,20 @@ import { AltMovie } from 'src/app/JSON Classes/AltMovie';
 })
 export class UserWatchlistComponent implements OnInit {
 
-  movieIDs = ["tt10696784"]
-  watchListMovies: AltMovie[] = []
+  movieIDs: string[] = [];
+  watchListMovies: AltMovie[] = [];
 
-  constructor(public matDialog: MatDialog, private actorAPIService: ActorAPIService) { }
+  constructor(
+    public matDialog: MatDialog,
+    private actorAPIService: ActorAPIService,
+    private watchlistService: WatchlistService,
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     // get list of id's from backend
     // loop through list of ID and call API to get movie info and save info in Movie array
     // then through ngFor pass that movie into showModal
+    this.movieIDs = await this.watchlistService.getWatchlist();
     for (var index in this.movieIDs) {
       this.actorAPIService.getAltMovieInfo(this.movieIDs[index]).subscribe(movieInfo => {
         this.watchListMovies.push(movieInfo)
