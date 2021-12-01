@@ -4,12 +4,13 @@
     <div id="settingsPageInputDiv">
       <button mat-raised-button (click)="showAccountDetailsModal()" readonly class="settingsPageLink">Account Details</button>
       <button mat-raised-button (click)="showRecommendationModal()" readonly class="settingsPageLink">Recommendation Preferences</button>
-      <button mat-raised-button (click)="showAppearanceModal()" readonly class="settingsPageLink">Appearance</button>
+      <!-- <button mat-raised-button (click)="showAppearanceModal()" readonly class="settingsPageLink">Appearance</button> -->
       <button mat-raised-button (click)="showHistoryModal()" readonly class="settingsPageLink">History</button>
       <button mat-raised-button (click)="showSecurityModal()" readonly class="settingsPageLink">Security</button>
       <button mat-raised-button (click)="showHelpModal()" readonly class="settingsPageLink">Help</button>
       <button mat-raised-button (click)="showTAndCModal()" readonly class="settingsPageLink">Terms and Conditions</button>
       <button mat-raised-button (click)="showFeedbackModal()" readonly class="settingsPageLink">Feedback</button>
+      <button mat-raised-button routerLink="/resetpassword-page" readonly class="settingsPageLink">Reset Password</button>
     </div>
   </div>
 </div>
@@ -308,8 +309,8 @@
         class="settingsPageLinkHelp"
         placeholder="How to share a movie"
       />
-      
-      
+
+
       <button mat-raised-button (click)="showHelpModal()" class="settingsModalBackButton">Go Back</button>
     </div>
   </div>
@@ -318,11 +319,11 @@
       <p>Movie Generator is a web-based application allowing user to find the perfect movie for the right occasion.
 
         You can find the perfect movie in three different ways:
-        
+
         Head over the main page to find recommended popular movies
         Search for a movie based on its genre
         Search for a completely random movie and be pleasantly surprised
-        
+
         Enjoy!
         </p>
         <button mat-raised-button (click)="showHelpUsageModal()" class="settingsModalBackButton">Close</button>
