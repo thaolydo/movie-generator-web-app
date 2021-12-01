@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { select } from '@ngrx/store';
 import { ActorData } from 'src/app/interfaces/actorData.interface';
 import { MovieData } from 'src/app/interfaces/movieData.interface';
 import { ActorAPIService } from 'src/app/services/actor-api.service';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-search-page',
@@ -473,22 +472,22 @@ export class SearchPageComponent implements OnInit {
         i = Math.round(i * 100) / 100;
         setTimeout( function () {
           (addedMoviePopup as HTMLFormElement).style.opacity = i.toString();
-        }, i * 1000);      
+        }, i * 1000);
       }
 
       setTimeout(function () {
         //fade out
         (addedMoviePopup as HTMLFormElement).style.opacity = '1';
       for (let i = 1; i > 0; i += -0.01) {
-        
+
          setTimeout( function () {
           (addedMoviePopup as HTMLFormElement).style.opacity = (1 - i).toString();
-          
-         
-        }, i * 1000);      
+
+
+        }, i * 1000);
       }
       },3000)
-      
+
     }
   };
 
