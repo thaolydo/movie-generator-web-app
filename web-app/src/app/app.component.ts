@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { AuthService } from './services/auth.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +8,9 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'movie-generator';
 
-  constructor(private authService: AuthService) {
-  }
+  constructor() { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
   }
 
 }

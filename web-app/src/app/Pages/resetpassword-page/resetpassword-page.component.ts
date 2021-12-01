@@ -18,17 +18,17 @@ export class ResetpasswordPageComponent implements OnInit {
 
   constructor(private authService: AuthService) { }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
   }
-  
+
   async onSendCode() {
     console.log('Sending code');
     this.curUser = await this.authService.sendResetPasswordCode(this.email);
   }
-  
-  onResetPassword() {
+
+  async onResetPassword() {
     console.log('Reset password');
-    this.authService.resetPasswordWithCode(this.curUser!, this.verificationCode, this.enteredPassword);
+    await this.authService.resetPasswordWithCode(this.curUser!, this.verificationCode, this.enteredPassword);
   }
 
 }

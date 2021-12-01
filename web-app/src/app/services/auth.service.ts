@@ -227,6 +227,25 @@ export class AuthService {
     });
   }
 
+  getCurUserEmail(): Promise<string> {
+    return new Promise(async (resolve, reject) => {
+      const curUser = await this.getCurUser();
+      curUser?.getUserAttributes((err, data) => {
+        if (err) {
+          reject(err);
+          return;
+        }
+        console.log('Get attributes successfully with data =', data);
+        data?.forEach(attribute => {
+          if (attribute.getName() === 'email') {
+            resolve(attribute.getValue());
+            return;
+          }
+        });
+      });
+    });
+  }
+
   getEventUpdates(): Subject<string> {
     return this.eventSubject;
   }

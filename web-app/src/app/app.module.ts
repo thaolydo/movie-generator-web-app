@@ -21,7 +21,6 @@ import { SearchPageComponent } from './Pages/search-page/search-page.component';
 import { LoadingSpinnerComponent } from './UI/loading-spinner/loading-spinner.component';
 import { UserWatchlistComponent } from './Pages/user-watchlist/user-watchlist.component';
 import { WatchlistModalComponent } from './components/watchlist-modal/watchlist-modal.component';
-import { WatchlistServiceService } from './services/watchlist-service.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +47,7 @@ import { WatchlistServiceService } from './services/watchlist-service.service';
     HttpClientModule,
     MaterialModule,
   ],
-  providers: [WatchlistServiceService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
