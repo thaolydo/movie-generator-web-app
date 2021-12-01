@@ -3,6 +3,7 @@ import { ActorData } from 'src/app/interfaces/actorData.interface';
 import { MovieData } from 'src/app/interfaces/movieData.interface';
 import { ActorAPIService } from 'src/app/services/actor-api.service';
 import { MatDialog } from '@angular/material/dialog';
+import { WatchlistService } from 'src/app/services/watchlist.service';
 
 @Component({
   selector: 'app-search-page',
@@ -457,9 +458,8 @@ export class SearchPageComponent implements OnInit {
     this.showSpinnerCommand();
   };
 
-  addToWatchLater = (imdbID: string) => {
-    //For Steven: imdbID is the imdb id for the database
-    console.log(imdbID);
+  addToWatchLater = async (imdbID: string) => {
+    await this.watchlistService.addToWatchlist(imdbID);
   };
 
   showAddedMoviePopup = async (movieTitle: string) => {
@@ -498,7 +498,8 @@ export class SearchPageComponent implements OnInit {
 
   constructor(
     public matDialog: MatDialog,
-    private actorAPIService: ActorAPIService
+    private actorAPIService: ActorAPIService,
+    private watchlistService: WatchlistService,
   ) {}
 
   ngOnInit(): void {

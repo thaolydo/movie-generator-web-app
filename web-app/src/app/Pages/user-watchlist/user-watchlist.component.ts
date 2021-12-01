@@ -27,10 +27,10 @@ export class UserWatchlistComponent implements OnInit {
     // loop through list of ID and call API to get movie info and save info in Movie array
     // then through ngFor pass that movie into showModal
     this.movieIDs = await this.watchlistService.getWatchlist();
-    for (var index in this.movieIDs) {
-      this.actorAPIService.getAltMovieInfo(this.movieIDs[index]).subscribe(movieInfo => {
-        this.watchListMovies.push(movieInfo)
-      })
+    console.log('movie ids =', this.movieIDs);
+    for (let i in this.movieIDs) {
+      const movieInfo = await this.actorAPIService.getAltMovieInfo(this.movieIDs[i]).toPromise();
+      this.watchListMovies.push(movieInfo);
     }
   }
 

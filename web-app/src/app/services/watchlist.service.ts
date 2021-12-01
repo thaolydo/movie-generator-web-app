@@ -23,12 +23,14 @@ export class WatchlistService {
           email
         }
       })
-    }).toPromise();
+    }).toPromise().then((data: any) => {
+      return data.watchlist;
+    });
   }
 
   async addToWatchlist(movieId: string): Promise<string[]> {
     const email = await this.authService.getCurUserEmail();
-    return this.httpClient.post<string[]>(this.baseUrl, { }, {
+    return this.httpClient.post<any>(this.baseUrl, { }, {
       headers: new HttpHeaders({
         email,
         movieId
